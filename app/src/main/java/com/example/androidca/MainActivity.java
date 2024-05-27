@@ -1,9 +1,11 @@
 package com.example.androidca;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
@@ -17,11 +19,16 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
 
+    private ImageView backgroundImage;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
+
+        backgroundImage = findViewById(R.id.backgroundImage);
+        adjustBackgroundImage(getResources().getConfiguration().orientation);
 
         // Set up the Toolbar
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -82,5 +89,19 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
             finish();
         });
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        adjustBackgroundImage(newConfig.orientation);
+    }
+
+    private void adjustBackgroundImage(int orientation) {
+        if (orientation == Configuration.ORIENTATION_PORTRAIT) {
+            backgroundImage.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        } else if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            backgroundImage.setScaleType(ImageView.ScaleType.FIT_XY);
+        }
     }
 }
