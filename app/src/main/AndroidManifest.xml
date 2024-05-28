@@ -29,9 +29,15 @@
             android:exported="true">
         </activity>
 
-        <!-- Add the CategoriesActivity declaration here -->
         <activity
             android:name=".CategoriesActivity"
+            android:theme="@style/Theme.AndroidCA"
+            android:exported="true">
+        </activity>
+
+        <!-- Add the ProductsActivity declaration here -->
+        <activity
+            android:name=".ProductsActivity"
             android:theme="@style/Theme.AndroidCA"
             android:exported="true">
         </activity>

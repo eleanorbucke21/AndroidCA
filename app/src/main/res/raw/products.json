@@ -1,0 +1,420 @@
+[{
+  "pk": 1,
+  "model": "products.product",
+  "fields": {
+    "sku": "pp5001340155",
+    "name": "12 MRE's with heaters",
+    "description": "This MRE Case includes 12 Single Complete MRE Meals – Standard Variety with Heaters 6 Varieties, 2 of Each Varieties include Beef, Chicken, Pork, Vegetarian",
+    "price": 120.99,
+    "category": 4,
+    "rating": 4.6,
+    "image_url": "https://m.media-amazon.com/images/I/716c22zfNML._AC_SX466_PIbundle-12,TopRight,0,0_SH20_.jpg",
+    "image": "12-MRE's-with-heaters.jpg"
+  }
+},
+  {
+    "pk": 2,
+    "model": "products.product",
+    "fields": {
+      "sku": "pp5001600425",
+      "name": "12 Kosher MRE's with heaters",
+      "description": "Certified Kosher Made in the USA. XMREs exceed the highest military standards and critical requirements of government institutions, global humanitarian relief organizations, emergency preparedness, survivalists, outdoorsmen and first responders.",
+      "price": 130.50,
+      "category": 5,
+      "rating": 4.6,
+      "image_url": "https://m.media-amazon.com/images/I/71swC2dm9lL._SX679_.jpg",
+      "image": "12-Kosher-Mre's-with-heaters.jpg"
+    }
+  },
+  {
+    "pk": 3,
+    "model": "products.product",
+    "fields": {
+      "sku": "pp5001730010",
+      "name": "12 Halal Mre's with heater",
+      "description": "HALAL CERTIFIED: XMREs meals are packed fresh and certified and compliant with all standards in accordance to Sharia Laws & Regulations. Each case contains 12 rations with 6 menu options. Each meal provides 900-1,100 calories of high quality nourishment.",
+      "price": 205.99,
+      "category": 6,
+      "rating": 4.7,
+      "image_url": "https://cdn.shopify.com/s/files/1/0280/3689/0761/products/41hZRoEFSWS.jpg?v=1635273666",
+      "image": "12-Halal.jpg"
+    }
+  },
+  {
+    "pk": 4,
+    "model": "products.product",
+    "fields": {
+      "sku": "pp5001890157",
+      "name": "Hurley",
+      "description": "The Uwin hurley stick is handcrafted in Ireland by the best craftsmen. Each stick has a traditional Wexford shape and a medium-large bas which provides a very pure strike and offers a great feel. All our hurleys are made from finest premium root ash, which give them strength and durability.",
+      "price": 48.00,
+      "category": 8,
+      "rating": 3.0,
+      "image_url": "https://www.elverys.ie/medias/C1-000000000001124554-636Wx636H?context=bWFzdGVyfGltYWdlc3w4NTU0MHxpbWFnZS9qcGVnfGgzMC9oOTAvMTA3NjgwNDM5MzM3MjYvQzFfMDAwMDAwMDAwMDAxMTI0NTU0XzYzNld4NjM2SHxjZjQ0YmUxMGZlNTc2NDk1YjM1ZDRhNGIzNzdlZGJhNzUxNDAwMjI1M2Q4MmU3OTFhNmY4ZjNiMWNiOTU3ZWE1",
+      "image": "hurley.jpg"
+    }
+  },
+  {
+    "pk": 5,
+    "model": "products.product",
+    "fields": {
+      "sku": "pp5002111605",
+      "name": "Cricket Bat",
+      "description": "Kashmir willow oak with a short handle. Very durable ",
+      "price": 50.00,
+      "category": 8,
+      "rating": 5.0,
+      "image_url": "https://edsports.ie/wp-content/uploads/2022/01/2B23355-Beast-JNR-9.1.jpg",
+      "image": "cricketbat.jpg"
+    }
+  },
+  {
+    "pk": 6,
+    "model": "products.product",
+    "fields": {
+      "sku": "pp5002260206",
+      "name": "Baseball bat with barbed wire",
+      "description": "Inspired by Negan from The Walking Dead. A Louisville slugger wrapped in barbed wire.",
+      "price": 30.99,
+      "category": 8,
+      "rating": 4.7,
+      "image_url": "https://m.media-amazon.com/images/I/61YjeFPZnLL._AC_SX679_.jpg",
+      "image": "lucielle.jpg"
+    }
+  },
+  {
+    "pk": 7,
+    "model": "products.product",
+    "fields": {
+      "sku": "pp5002440521",
+      "name": "British 24 hour ration pack",
+      "description": "British Army 24 ration pack. All you need for Energy Survival for 24 Hours Or Even Longer ! Each ration pack has an approximate nutritional value of 4000Kcals, 550 gm of Carbohydrates, 133gm of fat and 100gm of protein. All packs include Breakfast, Main Meal, Pudding and Lots Of Sundries!",
+      "price": 22.00,
+      "category": 4,
+      "rating": 4.4,
+      "image_url": "https://i.ebayimg.com/images/g/uqIAAOSw8TJib-EL/s-l500.jpg",
+      "image": "british.jpg"
+    }
+  },
+  {
+    "pk": 8,
+    "model": "products.product",
+    "fields": {
+      "sku": "pp5002601115",
+      "name": "US 24 hour ration pack",
+      "description": "US Army 24 ration pack. All you need for Energy Survival for 24 Hours Or Even Longer ! Each ration pack has an approximate nutritional value of 4000Kcals, 550 gm of Carbohydrates, 133gm of fat and 100gm of protein. All packs include Breakfast, Main Meal, Pudding and Lots Of Sundries!",
+      "price": 22.00,
+      "category": 4,
+      "rating": 4.5,
+      "image_url": "https://cdn.shopify.com/s/files/1/0627/4557/5651/products/51BtiO0o3QL_08c9b543-2dc7-4cc5-98fb-41eba0237c2b_1024x1024.jpg?v=1656447270",
+      "image": "usration.png"
+    }
+  },
+  {
+    "pk": 9,
+    "model": "products.product",
+    "fields": {
+      "sku": "pp5002690715",
+      "name": "5 24 hour rations Halal Certified",
+      "description": "5 24 hour rations of chicken",
+      "price": 51.99,
+      "category": 6,
+      "rating": 4.7,
+      "image_url": "https://i.ebayimg.com/images/g/D3EAAOSwa4NfOp0Z/s-l500.png",
+      "image": "halalchick.png"
+    }
+  },
+  {
+    "pk": 10,
+    "model": "products.product",
+    "fields": {
+      "sku": "pp5002701115",
+      "name": "One week of kosher rations",
+      "description": "A week of kosher mre's of various flavours.",
+      "price": 33.99,
+      "category": 5,
+      "rating": 4.4,
+      "image_url": "https://i.ebayimg.com/images/g/N3QAAOSwNZZggFLW/s-l500.jpg",
+      "image": "kosherweek.jpg"
+    }
+  },
+  {
+    "pk": 11,
+    "model": "products.product",
+    "fields": {
+      "sku": "pp5002761055",
+      "name": "Single sleeping bag",
+      "description": "COMFORTABLE SLEEPING BAG FOR ADULTS: Soft lining; Half-circle hood surrounds your head and keeps warm ; Unzips at the top or bottom for easy access and ventilation; our sleeping bags are designed to ensure that after a tiring day of trekking, hiking, travel or any other exploration you can get a good and relaxing night’s sleep.",
+      "price": 29.99,
+      "category": 11,
+      "rating": 3.0,
+      "image_url": "https://m.media-amazon.com/images/I/61WgBHat+yL._AC_SX679_.jpg",
+      "image": "sleepingbag1.jpg"
+    }
+  },
+  {
+    "pk": 12,
+    "model": "products.product",
+    "fields": {
+      "sku": "pp5002820069",
+      "name": "Single sleeping bag",
+      "description": "3-4 Season Single Sleeping Bags Camping Rectangular Envelope Zip Up Sleeping Bag; High quality material to make the range highly suitable for a variety of uses from indoor sleep to camping adventures application.",
+      "price": 29.99,
+      "category": 11,
+      "rating": 4.6,
+      "image_url": "https://i.ebayimg.com/images/g/1rYAAOSw-01jYN~h/s-l500.jpg",
+      "image": "sleepingbag2.jpg"
+    }
+  },
+  {
+    "pk": 13,
+    "model": "products.product",
+    "fields": {
+      "sku": "pp5002820147",
+      "name": "Andes Nevado 300 sleeping bag",
+      "description": "The Andes Nevado 300 sleeping bag has been certified to EN ISO 23537-1:2016 standards and awarded temperature ratings: Comfort 7°C/45ºF, Limit 2°C/36ºF and Extreme -13°C/9ºF.  The mummy shaped sleeping bag is the most thermally efficient. Wide at the shoulders with a pronounced taper to a narrow foot, reducing the amount of space and air to be heated within the bag. ",
+      "price": 29.99,
+      "category": 11,
+      "rating": 3.2,
+      "image_url": "https://m.media-amazon.com/images/I/61G6cAlyieL._AC_SX679_.jpg",
+      "image": "sleepingbag3.jpg"
+    }
+  },
+  {
+    "pk": 14,
+    "model": "products.product",
+    "fields": {
+      "sku": "pp5002910572",
+      "name": "Stormbreak 2",
+      "description": "This classic two-person tent has a large domed design with two doors and two twin-zip, multi-configuration vestibules for easy access in and out. Not only that, but you can easily stuff them into the adjacent mesh pockets to keep them out of the way. The shape allows for an abundance of headroom and high-low ventilation for maximum breathability, while the fully seam-sealed canopy and floor keep you warm, dry and ready for a day of adventure. ",
+      "price": 260.00,
+      "category": 10,
+      "rating": 4.7,
+      "image_url": "https://cdn.shopify.com/s/files/1/0686/0259/3584/products/The_North_Face_Stormbreak_2_52VI_006_900x.jpg?v=1680605783",
+      "image": "tent1.png"
+    }
+  },
+  {
+    "pk": 15,
+    "model": "products.product",
+    "fields": {
+      "sku": "pp5002990740",
+      "name": "6 Person Vis A Vis Tent",
+      "description": "This 6 Person Vis A Vis Tent is the home away from home, with 2 large separate bedrooms and a spacious central living area you will have plenty of room to enjoy your holiday. It has colour coded poles which make pitching a breeze. It's double skin will prevent condensation and cable access point so you can keep all of your gadgets charged.",
+      "price": 435.0,
+      "category": 10,
+      "rating": 4.8,
+      "image_url": "https://cdn.media.halfords.ie/i/washford/506150?w=740&h=555&qlt=default&fmt=auto&v=1",
+      "image": "tent2.png"
+    }
+  },
+  {
+    "pk": 16,
+    "model": "products.product",
+    "fields": {
+      "sku": "pp5003050248",
+      "name": "Camping tent mh100 - 2-person",
+      "description": "This tent has a classic dome structure. All you have to do is fit the tent poles with the bedroom, and then fit the flysheet on top.If it is windy it is advisable to attach the guy ropes that are provided in the tent bag.",
+      "price": 124.99,
+      "category": 10,
+      "rating": 4.4,
+      "image_url": "https://contents.mediadecathlon.com/p2376634/k$2dbb8e5eb2ff102f949a351d3bb11664/mh100-camping-tent-2-man.jpg?&f=800x800",
+      "image": "tent3.jpg"
+    }
+  },
+  {
+    "pk": 17,
+    "model": "products.product",
+    "fields": {
+      "sku": "pp5003070787",
+      "name": "Prepper's Long-Term Survival Guide: Food, Shelter, Security, Off-the-Grid Power and More Life-Saving Strategies for Self-Sufficient Living ",
+      "description": "Prepare your home and family for any life-threatening catastrophe with this step-by-step survivalist guide filled with techniques, strategies, and DIY projects from a lifelong prepping expert.",
+      "price": 33.99,
+      "category": 3,
+      "rating": 4.4,
+      "image_url": "https://m.media-amazon.com/images/I/51VG4kwlTpL._SY291_BO1,204,203,200_QL40_ML2_.jpg",
+      "image": "book1.jpg"
+    }
+  },
+  {
+    "pk": 18,
+    "model": "products.product",
+    "fields": {
+      "sku": "pp5003090182",
+      "name": "Embrace off-grid green living with this all-encompassing guide to self-sufficiency, your new go-to guide for a more sustainable way of life.",
+      "price": 33.99,
+      "category": 3,
+      "rating": 4.8,
+      "image_url": "https://m.media-amazon.com/images/I/51ymRDzK0lL._SX218_BO1,204,203,200_QL40_ML2_.jpg",
+      "image": "book2.jpg"
+    }
+  },
+  {
+    "pk": 19,
+    "model": "products.product",
+    "fields": {
+      "sku": "pp5003090186",
+      "name": "Bear Grylls Survival Skills Handbooks Set",
+      "description": "Titles in this set: Dangerous Animals, Tracking, Weather Watching; Forest; Shelter Building, Hiking, Firecraft and Campfire Cooking, First Aid, Dangerous Plants and Signalling",
+      "price": 40.99,
+      "category": 3,
+      "rating": 5.0,
+      "image_url": "https://cdn.shopify.com/s/files/1/0252/3362/1082/products/9480-2_800x.jpg?v=1599062009",
+      "image": "book3.png"
+    }
+  },
+  {
+    "pk": 20,
+    "model": "products.product",
+    "fields": {
+      "sku": "pp5003161326",
+      "name": "Step-by-Step Projects for Self-Sufficiency: Grow Edibles",
+      "description": "Get ready to be self-sufficient. Whether tackling the garden, raising animals, learning more about alternative energy, or bettering your storage and preservation, Step-by-Step Projects for Self-Sufficiency is the perfect starting point.",
+      "price": 20.99,
+      "category": 2,
+      "rating": 4.7,
+      "image_url": "https://m.media-amazon.com/images/I/51-plfyP6zL._SX389_BO1,204,203,200_.jpg",
+      "image": "book4.jpg"
+    }
+  },
+  {
+    "pk": 21,
+    "model": "products.product",
+    "fields": {
+      "sku": "pp5003230723",
+      "name": "Grand Seed Growing Kit - 30 Vegetable Seeds Varieties",
+      "description": "Start growing your own garden with All-in-one Seed Growing Kits by GARDEN PACK and enjoy the fun and benefits of indoor and outdoor gardening! The “Urban Garden” trend has made growing fresh greenery at home possible and very popular: balcony, rooftop, windowsill, patio; any indoor garden can give the pleasure of gardening if you choose the right grow kit.",
+      "price": 17.99,
+      "category": 2,
+      "rating": 4.3,
+      "image_url": "https://m.media-amazon.com/images/I/81bMs1qHc2L._AC_SX679_.jpg",
+      "image": "garden1.jpg"
+    }
+  },
+  {
+    "pk": 22,
+    "model": "products.product",
+    "fields": {
+      "sku": "pp5003270936",
+      "name": "Herb Seeds Set: Herbs Seeds for Planting",
+      "description": "The OwnGrown premium herb seeds are ideal for the cultivation of delicious, fresh herbs and spices in pots or bowls: Whether on the windowsill, balcony or in the herb bed!",
+      "price": 16.99,
+      "category": 2,
+      "rating": 5.0,
+      "image_url": "https://m.media-amazon.com/images/I/A1GHvBoLNvL._AC_SX679_.jpg",
+      "image": "garden2.jpg"
+    }
+  },
+  {
+    "pk": 23,
+    "model": "products.product",
+    "fields": {
+      "sku": "pp5003360384",
+      "name": "Ireland's Hidden Medicine: An exploration of Irish indigenous medicine from legend and myth to the present day",
+      "description": "Rosarie Kingston’s new book explores the rich healing traditions of Ireland which resonate through the country’s landscape, music, festivals and language. Indigenous medicine, no matter where it exists in the world, is characterised by the oral transmission of knowledge and the necessity for each person to be in harmony with themselves, their society and environment, as well as the spirit world. Ireland is no different, and its traditional therapeutic approach is designed to address body, mind, spirit and emotions within the local social and environmental context. ",
+      "price": 19.99,
+      "category": 1,
+      "rating": 4.8,
+      "image_url": "https://m.media-amazon.com/images/I/51c6fqtgenS._SX330_BO1,204,203,200_.jpg",
+      "image": "book5.jpg"
+    }
+  },
+  {
+    "pk": 24,
+    "model": "products.product",
+    "fields": {
+      "sku": "pp5003440111",
+      "name": "The Handmade Apothecary: Healing herbal remedies: Healing herbal recipes",
+      "description": "Herbs are quite literally everywhere; it is only our ability to recognise their value that has been lost. Vicky and Kim explore the traditional uses of herbs combined with a modern and scientific understanding of a truly holistic approach so that you can use herbs to treat ailments and improve your general wellbeing. ",
+      "price": 82.0,
+      "category": 1,
+      "rating": 3.8,
+      "image_url": "https://m.media-amazon.com/images/I/61hm+PO4kNL._SX437_BO1,204,203,200_.jpg",
+      "image": "book6.jpg"
+    }
+  },
+  {
+    "pk": 25,
+    "model": "products.product",
+    "fields": {
+      "sku": "pp5003540313",
+      "name": "Browguard, Ear Protectors & Steel Mesh Visor Combination",
+      "description": "Face and ear protection with lightweight and comfortable design. Headband with single-point adjustment. Protects the eyes.",
+      "price": 106.99,
+      "category": 1,
+      "rating": 3.0,
+      "image_url": "https://m.media-amazon.com/images/I/A1nahKL0AUL._AC_SX679_.jpg",
+      "image": "headgear1.jpg"
+    }
+  },
+  {
+    "pk": 26,
+    "model": "products.product",
+    "fields": {
+      "sku": "pp5003560513",
+      "name": "MARKSMAN Galvanised Mesh Wire",
+      "description": "Galvanised mesh wire, hard and durable.",
+      "price": 21.99,
+      "category": 1,
+      "rating": 4.4,
+      "image_url": "https://m.media-amazon.com/images/I/61eCYvYu62L._SY445_SX342_QL70_ML2_.jpg",
+      "image": "chickenwire.jpg"
+    }
+  },
+  {
+    "pk": 27,
+    "model": "products.product",
+    "fields": {
+      "sku": "pp5003560948",
+      "name": "24 hour ration Halal certified.",
+      "description": "All of the rations come with a variety of main meals, drinks, deserts, snacks and accessories. Correctly stored these rations will be edible for many years to come, perfect for any camping or hiking trip, fishing and as a general household back up supply in case of emergencies. These are strictly produced in line with Halal practices and are certified by the American Halal Association",
+      "price": 338.99,
+      "category": 6,
+      "rating": 5.0,
+      "image_url": "https://cdn.shopify.com/s/files/1/0468/6269/6601/products/IMG_0924_1_1024x1024@2x.jpg?v=1618956888",
+      "image": "halal22.png"
+    }
+  },
+  {
+    "pk": 28,
+    "model": "products.product",
+    "fields": {
+      "sku": "pp5003570628",
+      "name": "Aluminium Baseball Bat",
+      "description": "Our baseball bat is built of high quality solid material with the characteristics of sturdy and durable, has long life. Not easy to deform, strong, more fashionable.",
+      "price": 53.99,
+      "category": 8,
+      "rating": 4.3,
+      "image_url": "https://m.media-amazon.com/images/I/51YVnfUQs6L._AC_SX679_.jpg",
+      "image": "metalbaseball.jpg"
+    }
+  },
+  {
+    "pk": 29,
+    "model": "products.product",
+    "fields": {
+      "sku": "pp5003620308",
+      "name": "Crossbow",
+      "description": "Be like Daryl Dixon and keep a safe distance in the apocalypse.",
+      "price": 91.99,
+      "category": 8,
+      "rating": 4.6,
+      "image_url": "https://i.ebayimg.com/images/g/emUAAOSwx0NjvYVR/s-l500.jpg",
+      "image": "crossbow.jpg"
+    }
+  },
+  {
+    "pk": 30,
+    "model": "products.product",
+    "fields": {
+      "sku": "pp5003690115",
+      "name": "First Aid Kit",
+      "description": "Stocked with everything you could need.",
+      "price": 172.99,
+      "category": 1,
+      "rating": 5.0,
+      "image_url": "https://cdn3.volusion.com/dcykf.drklm/v/vspfiles/photos/elitewaistbag-2T.jpg?v-cache=1676868009",
+      "image": "firstaid.jpg"
+    }
+  }
+]

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -11,6 +12,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.core.view.WindowInsetsControllerCompat;
+
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class BaseActivity extends AppCompatActivity {
@@ -51,6 +53,12 @@ public class BaseActivity extends AppCompatActivity {
                 } else if (itemId == R.id.navigation_profile) {
                     Log.d("BaseActivity", "Profile selected");
                     // Handle Profile action
+                    return true;
+                } else if (itemId == R.id.navigation_shop) {
+                    Log.d("BaseActivity", "Shop selected");
+                    // Navigate to ProductsActivity
+                    Intent intent = new Intent(BaseActivity.this, ProductsActivity.class);
+                    startActivity(intent);
                     return true;
                 } else {
                     return false;
