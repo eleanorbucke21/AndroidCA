@@ -6,6 +6,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 
@@ -17,6 +18,8 @@ public class ProductDetailActivity extends BaseActivity {
     private TextView productName, productDescription, productPrice, productRating;
     private EditText quantityEditText;
     private Button decrementButton, incrementButton, addToBagButton, keepShoppingButton;
+
+    private JSONObject product;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +39,7 @@ public class ProductDetailActivity extends BaseActivity {
 
         String productString = getIntent().getStringExtra("product");
         try {
-            JSONObject product = new JSONObject(productString);
+            product = new JSONObject(productString);
             JSONObject fields = product.getJSONObject("fields");
 
             productName.setText(fields.getString("name"));
@@ -65,16 +68,26 @@ public class ProductDetailActivity extends BaseActivity {
             });
 
             addToBagButton.setOnClickListener(v -> {
-                // Handle add to bag functionality
+                addToBag();
             });
 
             keepShoppingButton.setOnClickListener(v -> {
-                // Handle keep shopping functionality
                 finish();
             });
 
         } catch (Exception e) {
             Log.e("ProductDetailActivity", "Error parsing product JSON", e);
+        }
+    }
+
+    private void addToBag() {
+        try {
+            JSONObject productWithQuantity = new JSONObject(product.toString());
+            productWithQuantity.put("quantity", Integer.parseInt(quantityEditText.getText().toString()));
+            BagManager.getInstance().addToBag(productWithQuantity);
+            Toast.makeText(this, "Added to Bag", Toast.LENGTH_SHORT).show();
+        } catch (Exception e) {
+            Log.e("ProductDetailActivity", "Error adding product to bag", e);
         }
     }
 }

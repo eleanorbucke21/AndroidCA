@@ -20,5 +20,4 @@
         app:layout_constraintRight_toRightOf="parent"
         tools:ignore="ImageContrastCheck" />
 
-
 </androidx.constraintlayout.widget.ConstraintLayout>

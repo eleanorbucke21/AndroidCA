@@ -1,11 +1,26 @@
 <resources>
     <string name="app_name">AndroidCA</string>
 
+    <!-- Toolbar -->
     <string name="toolbar_title">DAYS COMING</string>
-    <string name="content_description_cityscape">Cityscape in apocalypse</string>
+    <string name="profile">Profile</string>
 
+    <!-- Image Description -->
+    <string name="content_description_cityscape">Cityscape in apocalypse</string>
+    <string name="content_description_lou">Market in apocalypse</string>
+
+    <!-- Bottom Navigation Menu -->
     <string name="home">Home</string>
     <string name="search">Search</string>
     <string name="cart">Cart</string>
-    <string name="profile">Profile</string>
+    <string name="shopping_bag">Shopping Bag</string>
+
+    <!-- Products & Bag -->
+    <string name="bag_total">Bag Total: €%.2f</string>
+    <string name="delivery">Delivery: €%.2f</string>
+    <string name="grand_total">Grand Total: €%.2f</string>
+    <string name="secure_checkout">Secure Checkout</string>
+    <string name="keep_shopping">Keep Shopping</string>
+    <string name="add_to_bag">Add to Bag</string>
+    <string name="checkout_title">Checkout</string>
 </resources>
