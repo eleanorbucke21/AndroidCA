@@ -12,7 +12,7 @@ public class MainActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // Inflate the specific layout for MainActivity
+        // Inflate the specific layout for MainActivity within the content frame
         getLayoutInflater().inflate(R.layout.activity_main, findViewById(R.id.content_frame));
 
         // Initialize the background image

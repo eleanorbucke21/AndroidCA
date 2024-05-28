@@ -29,6 +29,13 @@
             android:exported="true">
         </activity>
 
+        <!-- Add the CategoriesActivity declaration here -->
+        <activity
+            android:name=".CategoriesActivity"
+            android:theme="@style/Theme.AndroidCA"
+            android:exported="true">
+        </activity>
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

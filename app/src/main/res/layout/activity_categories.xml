@@ -3,22 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".CategoriesActivity">
 
-    <!-- Background ImageView specific to MainActivity -->
-    <ImageView
-        android:id="@+id/backgroundImage"
+    <ListView
+        android:id="@+id/categoriesListView"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:src="@drawable/twd"
-        android:scaleType="centerCrop"
-        android:contentDescription="@string/content_description_cityscape"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        tools:ignore="ImageContrastCheck" />
-
-    <!-- Add any other specific content for MainActivity here -->
-
+        app:layout_constraintRight_toRightOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
