@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">AndroidCA</string>
 
+    <string name="toolbar_title">DAYS COMING</string>
     <string name="content_description_cityscape">Cityscape in apocalypse</string>
 
     <string name="home">Home</string>
