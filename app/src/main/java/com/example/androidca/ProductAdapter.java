@@ -10,7 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;  // Ensure this import statement is present
+import com.bumptech.glide.Glide;
 
 import org.json.JSONObject;
 
@@ -38,6 +38,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
             JSONObject fields = product.getJSONObject("fields");
 
             holder.productName.setText(fields.getString("name"));
+            holder.productPrice.setText("$" + fields.getDouble("price"));
 
             // Load image using Glide
             Glide.with(holder.itemView.getContext())
@@ -62,12 +63,13 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
     static class ProductViewHolder extends RecyclerView.ViewHolder {
 
         ImageView productImage;
-        TextView productName;
+        TextView productName, productPrice;
 
         public ProductViewHolder(@NonNull View itemView) {
             super(itemView);
             productImage = itemView.findViewById(R.id.productImage);
             productName = itemView.findViewById(R.id.productName);
+            productPrice = itemView.findViewById(R.id.productPrice);
         }
     }
 }

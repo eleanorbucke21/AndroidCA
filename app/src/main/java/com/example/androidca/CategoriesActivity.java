@@ -1,30 +1,44 @@
 package com.example.androidca;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+
+import androidx.appcompat.app.AppCompatActivity;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
+
 import java.io.InputStream;
 import java.util.ArrayList;
 
-public class CategoriesActivity extends BaseActivity {
+public class CategoriesActivity extends AppCompatActivity {
 
     private ListView categoriesListView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        // Inflate the specific layout for CategoriesActivity within the content frame
-        getLayoutInflater().inflate(R.layout.activity_categories, findViewById(R.id.content_frame));
+        setContentView(R.layout.activity_categories);
 
         categoriesListView = findViewById(R.id.categoriesListView);
 
-        // Load and parse categories from JSON
         ArrayList<String> categories = loadCategoriesFromJSON();
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, categories);
         categoriesListView.setAdapter(adapter);
+
+        categoriesListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String selectedCategory = String.valueOf(position + 1); // Assuming category IDs start from 1 and are sequential
+                Intent intent = new Intent(CategoriesActivity.this, ProductsActivity.class);
+                intent.putExtra("category", selectedCategory);
+                startActivity(intent);
+            }
+        });
     }
 
     private ArrayList<String> loadCategoriesFromJSON() {
