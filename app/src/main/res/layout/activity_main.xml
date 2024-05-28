@@ -1,11 +1,11 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <!-- Background ImageView specific to MainActivity -->
     <ImageView
         android:id="@+id/backgroundImage"
         android:layout_width="0dp"
@@ -18,53 +18,6 @@
         app:layout_constraintRight_toRightOf="parent"
         tools:ignore="ImageContrastCheck" />
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:background="@color/colorPrimaryDark"
-        android:minHeight="?attr/actionBarSize"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        android:theme="?attr/actionBarTheme">
+    <!-- Add any other specific content for MainActivity here -->
 
-        <TextView
-            android:id="@+id/toolbar_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:fontFamily="@font/oswald_medium"
-            android:text="DAYS COMING"
-            android:textColor="@color/white"
-            android:textSize="20sp" />
-    </androidx.appcompat.widget.Toolbar>
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/oswald_medium"
-        android:text="DAYS COMING"
-        android:textColor="@color/white"
-        android:textSize="28sp"
-        app:layout_constraintTop_toBottomOf="@id/toolbar"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintVertical_bias="0.5"
-        tools:layout_editor_absoluteX="129dp"
-        tools:layout_editor_absoluteY="7dp" />
-
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottom_navigation"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:background="@color/colorPrimaryDark"
-        app:itemIconTint="@color/white"
-        app:menu="@menu/bottom_nav_menu"
-        style="@style/CustomBottomNavigationView"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"/>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
