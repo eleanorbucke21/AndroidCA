@@ -15,14 +15,14 @@ import org.json.JSONObject;
 import java.io.InputStream;
 import java.util.ArrayList;
 
-public class CategoriesActivity extends AppCompatActivity {
+public class CategoriesActivity extends BaseActivity {
 
     private ListView categoriesListView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_categories);
+        getLayoutInflater().inflate(R.layout.activity_categories, findViewById(R.id.content_frame));
 
         categoriesListView = findViewById(R.id.categoriesListView);
 
@@ -39,6 +39,12 @@ public class CategoriesActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        resetBottomNavigationSelection();
     }
 
     private ArrayList<String> loadCategoriesFromJSON() {

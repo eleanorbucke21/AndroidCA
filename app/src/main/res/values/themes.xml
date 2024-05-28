@@ -26,6 +26,6 @@
         <item name="itemTextAppearanceInactive">@android:style/TextAppearance</item>
         <item name="itemIconTint">@color/white</item>
         <item name="itemTextColor">@color/white</item>
-        <item name="labelVisibilityMode">labeled</item> <!-- Force icons only -->
+        <item name="labelVisibilityMode">labeled</item>
     </style>
 </resources>

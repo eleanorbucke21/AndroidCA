@@ -55,6 +55,12 @@ public class BagActivity extends BaseActivity {
         });
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        resetBottomNavigationSelection();
+    }
+
     private void updateTotals() {
         ArrayList<JSONObject> bagItems = BagManager.getInstance().getBagItems();
         double total = 0.0;

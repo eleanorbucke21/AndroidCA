@@ -34,7 +34,7 @@ public class ProductsActivity extends BaseActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        displayProducts();
+        resetBottomNavigationSelection();
     }
 
     private void displayProducts() {

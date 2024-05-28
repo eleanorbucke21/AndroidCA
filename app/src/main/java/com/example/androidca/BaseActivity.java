@@ -17,6 +17,8 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class BaseActivity extends AppCompatActivity {
 
+    protected BottomNavigationView bottomNavigationView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,44 +30,57 @@ public class BaseActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayShowTitleEnabled(false); // Disable default title
 
         // Set up BottomNavigationView
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+        bottomNavigationView = findViewById(R.id.bottom_navigation);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                int itemId = item.getItemId();
-                if (itemId == R.id.navigation_home) {
-                    Log.d("BaseActivity", "Home selected");
-                    // Navigate to MainActivity
-                    Intent intent = new Intent(BaseActivity.this, MainActivity.class);
-                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-                    startActivity(intent);
-                    return true;
-                } else if (itemId == R.id.navigation_search) {
-                    Log.d("BaseActivity", "Categories selected");
-                    // Navigate to CategoriesActivity
-                    Intent intent = new Intent(BaseActivity.this, CategoriesActivity.class);
-                    startActivity(intent);
-                    return true;
-                } else if (itemId == R.id.navigation_cart) {
-                    Log.d("BaseActivity", "Bag selected");
-                    // Navigate to BagActivity
-                    Intent intent = new Intent(BaseActivity.this, BagActivity.class);
-                    startActivity(intent);
-                    return true;
-                } else if (itemId == R.id.navigation_shop) {
-                    Log.d("BaseActivity", "Products selected");
-                    // Navigate to ProductsActivity
-                    Intent intent = new Intent(BaseActivity.this, ProductsActivity.class);
-                    startActivity(intent);
-                    return true;
-                } else {
-                    return false;
+                boolean handled = handleNavigation(item);
+                if (handled) {
+                    resetBottomNavigationSelection();
                 }
+                return handled;
             }
         });
 
         // Apply window insets for status and navigation bars
         applyWindowInsets();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        resetBottomNavigationSelection();
+    }
+
+    protected void resetBottomNavigationSelection() {
+        bottomNavigationView.getMenu().setGroupCheckable(0, false, true);
+        for (int i = 0; i < bottomNavigationView.getMenu().size(); i++) {
+            bottomNavigationView.getMenu().getItem(i).setChecked(false);
+        }
+        bottomNavigationView.getMenu().setGroupCheckable(0, true, true);
+    }
+
+    protected boolean handleNavigation(@NonNull MenuItem item) {
+        int itemId = item.getItemId();
+        if (itemId == R.id.navigation_home) {
+            Log.d("BaseActivity", "Home selected");
+            startActivity(new Intent(this, MainActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
+            return true;
+        } else if (itemId == R.id.navigation_search) {
+            Log.d("BaseActivity", "Categories selected");
+            startActivity(new Intent(this, CategoriesActivity.class));
+            return true;
+        } else if (itemId == R.id.navigation_cart) {
+            Log.d("BaseActivity", "Bag selected");
+            startActivity(new Intent(this, BagActivity.class));
+            return true;
+        } else if (itemId == R.id.navigation_shop) {
+            Log.d("BaseActivity", "Products selected");
+            startActivity(new Intent(this, ProductsActivity.class));
+            return true;
+        } else {
+            return false;
+        }
     }
 
     private void applyWindowInsets() {

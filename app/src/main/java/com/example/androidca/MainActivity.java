@@ -38,6 +38,7 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        resetBottomNavigationSelection();
         // Clear the intent data to reset any filters
         getIntent().removeExtra("category");
     }
