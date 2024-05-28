@@ -1,5 +1,6 @@
 package com.example.androidca;
 
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.widget.ImageView;
@@ -32,5 +33,12 @@ public class MainActivity extends BaseActivity {
         } else if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
             backgroundImage.setScaleType(ImageView.ScaleType.FIT_XY);
         }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        // Clear the intent data to reset any filters
+        getIntent().removeExtra("category");
     }
 }

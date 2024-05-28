@@ -41,21 +41,19 @@ public class BaseActivity extends AppCompatActivity {
                     startActivity(intent);
                     return true;
                 } else if (itemId == R.id.navigation_search) {
-                    Log.d("BaseActivity", "Search selected");
+                    Log.d("BaseActivity", "Categories selected");
                     // Navigate to CategoriesActivity
                     Intent intent = new Intent(BaseActivity.this, CategoriesActivity.class);
                     startActivity(intent);
                     return true;
                 } else if (itemId == R.id.navigation_cart) {
-                    Log.d("BaseActivity", "Cart selected");
-                    // Handle Cart action
-                    return true;
-                } else if (itemId == R.id.navigation_profile) {
-                    Log.d("BaseActivity", "Profile selected");
-                    // Handle Profile action
+                    Log.d("BaseActivity", "Bag selected");
+                    // Navigate to BagActivity
+                    Intent intent = new Intent(BaseActivity.this, BagActivity.class);
+                    startActivity(intent);
                     return true;
                 } else if (itemId == R.id.navigation_shop) {
-                    Log.d("BaseActivity", "Shop selected");
+                    Log.d("BaseActivity", "Products selected");
                     // Navigate to ProductsActivity
                     Intent intent = new Intent(BaseActivity.this, ProductsActivity.class);
                     startActivity(intent);

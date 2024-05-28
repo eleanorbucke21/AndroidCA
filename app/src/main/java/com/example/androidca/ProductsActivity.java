@@ -28,17 +28,32 @@ public class ProductsActivity extends BaseActivity {
         productsRecyclerView.addItemDecoration(new DividerItemDecoration(this));
 
         allProducts = loadProductsFromJSON();
+        displayProducts();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        displayProducts();
+    }
+
+    private void displayProducts() {
         String selectedCategory = getIntent().getStringExtra("category");
+        ArrayList<JSONObject> productsToDisplay;
 
-        // Debugging: Log the selected category
-        Log.d("ProductsActivity", "Selected category: " + selectedCategory);
+        if (selectedCategory != null) {
+            // Debugging: Log the selected category
+            Log.d("ProductsActivity", "Selected category: " + selectedCategory);
+            productsToDisplay = filterProductsByCategory(allProducts, selectedCategory);
+        } else {
+            // No category selected, display all products
+            productsToDisplay = allProducts;
+        }
 
-        ArrayList<JSONObject> filteredProducts = filterProductsByCategory(allProducts, selectedCategory);
+        // Debugging: Log the number of products to display
+        Log.d("ProductsActivity", "Products to display count: " + productsToDisplay.size());
 
-        // Debugging: Log the filtered products count
-        Log.d("ProductsActivity", "Filtered products count: " + filteredProducts.size());
-
-        productAdapter = new ProductAdapter(filteredProducts);
+        productAdapter = new ProductAdapter(productsToDisplay);
         productsRecyclerView.setAdapter(productAdapter);
     }
 

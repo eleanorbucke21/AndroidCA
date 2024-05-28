@@ -17,7 +17,8 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:theme="?attr/actionBarTheme">
+        android:theme="?attr/actionBarTheme"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
 
         <TextView
             android:id="@+id/toolbar_text"
@@ -28,6 +29,17 @@
             android:text="DAYS COMING"
             android:textColor="@color/white"
             android:textSize="20sp" />
+
+        <ImageButton
+            android:id="@+id/ic_profile"
+            android:layout_width="20sp"
+            android:layout_height="24sp"
+            android:layout_gravity="end"
+            android:layout_marginEnd="16dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_profile"
+            android:contentDescription="@string/profile"
+            android:scaleType="centerInside" />
     </androidx.appcompat.widget.Toolbar>
 
     <!-- Content Frame for Specific Activities -->
