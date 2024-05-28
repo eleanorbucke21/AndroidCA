@@ -21,10 +21,11 @@ public class ProductsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_products); // Ensure this matches your layout file name
+        setContentView(R.layout.activity_products);
 
-        productsRecyclerView = findViewById(R.id.productsRecyclerView); // Ensure this matches the id in your layout file
+        productsRecyclerView = findViewById(R.id.productsRecyclerView);
         productsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        productsRecyclerView.addItemDecoration(new DividerItemDecoration(this));
 
         ArrayList<JSONObject> products = loadProductsFromJSON();
         productAdapter = new ProductAdapter(products);

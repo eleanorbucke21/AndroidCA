@@ -1,5 +1,6 @@
 package com.example.androidca;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +9,8 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.bumptech.glide.Glide;
 
 import org.json.JSONObject;
 
@@ -35,11 +38,17 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
             JSONObject fields = product.getJSONObject("fields");
 
             holder.productName.setText(fields.getString("name"));
-            holder.productDescription.setText(fields.getString("description"));
-            holder.productPrice.setText("$" + fields.getDouble("price"));
 
-            // Load image using ImageLoader
-            ImageLoader.loadImage(fields.getString("image_url"), holder.productImage);
+            // Load image using Glide
+            Glide.with(holder.itemView.getContext())
+                    .load(fields.getString("image_url"))
+                    .into(holder.productImage);
+
+            holder.itemView.setOnClickListener(v -> {
+                Intent intent = new Intent(holder.itemView.getContext(), ProductDetailActivity.class);
+                intent.putExtra("product", product.toString());
+                holder.itemView.getContext().startActivity(intent);
+            });
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -53,14 +62,12 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
     static class ProductViewHolder extends RecyclerView.ViewHolder {
 
         ImageView productImage;
-        TextView productName, productDescription, productPrice;
+        TextView productName;
 
         public ProductViewHolder(@NonNull View itemView) {
             super(itemView);
             productImage = itemView.findViewById(R.id.productImage);
             productName = itemView.findViewById(R.id.productName);
-            productDescription = itemView.findViewById(R.id.productDescription);
-            productPrice = itemView.findViewById(R.id.productPrice);
         }
     }
 }
