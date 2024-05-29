@@ -36,4 +36,19 @@
     <style name="BottomNavigationView.Inactive" parent="TextAppearance.AppCompat.Small">
         <item name="android:textSize">14sp</item>
     </style>
+
+    <!-- Custom styles for Login and Register pages -->
+    <style name="LoginContainer">
+        <item name="android:padding">24dp</item>
+        <item name="android:background">#FFFFFF</item>
+        <item name="android:alpha">0.9</item>
+    </style>
+
+    <style name="LoginButton">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:background">#222</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
 </resources>

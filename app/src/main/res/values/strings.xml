@@ -28,4 +28,10 @@
     <string name="add_to_bag">Add to Bag</string>
     <string name="checkout_title">Checkout</string>
 
-    </resources>
+    <!-- Login & Register -->
+    <string name="login">Login</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="no_account_register_now">No account? <font color='@color/red'>Register now</font></string>
+    <string name="register">Register</string>
+</resources>
