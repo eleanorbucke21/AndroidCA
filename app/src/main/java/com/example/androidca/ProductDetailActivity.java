@@ -24,7 +24,10 @@ public class ProductDetailActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_product_detail);
+        setContentView(R.layout.activity_base);  // Inflate the base layout
+
+        // Inflate the product detail content into the content frame
+        getLayoutInflater().inflate(R.layout.activity_product_detail, findViewById(R.id.content_frame));
 
         productImage = findViewById(R.id.productImage);
         productName = findViewById(R.id.productName);
