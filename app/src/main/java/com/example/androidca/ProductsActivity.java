@@ -3,7 +3,7 @@ package com.example.androidca;
 import android.os.Bundle;
 import android.util.Log;
 
-import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import org.json.JSONArray;
@@ -24,7 +24,10 @@ public class ProductsActivity extends BaseActivity {
         getLayoutInflater().inflate(R.layout.activity_products, findViewById(R.id.content_frame));
 
         productsRecyclerView = findViewById(R.id.productsRecyclerView);
-        productsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        // Use GridLayoutManager for tablet layout
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2); // 2 columns for tablet
+        productsRecyclerView.setLayoutManager(gridLayoutManager);
         productsRecyclerView.addItemDecoration(new DividerItemDecoration(this));
 
         allProducts = loadProductsFromJSON();

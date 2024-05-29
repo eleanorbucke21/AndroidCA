@@ -28,39 +28,44 @@
         <activity
             android:name=".MainActivity"
             android:theme="@style/Theme.AndroidCA"
-            android:exported="true">
+            android:exported="true"
+            android:windowSoftInputMode="stateHidden">
         </activity>
 
         <activity
             android:name=".CategoriesActivity"
             android:theme="@style/Theme.AndroidCA"
-            android:exported="true">
+            android:exported="true"
+            android:windowSoftInputMode="stateHidden">
         </activity>
 
         <activity
             android:name=".ProductsActivity"
             android:theme="@style/Theme.AndroidCA"
-            android:exported="true">
+            android:exported="true"
+            android:windowSoftInputMode="stateHidden">
         </activity>
 
         <activity
             android:name=".ProductDetailActivity"
             android:theme="@style/Theme.AndroidCA"
-            android:exported="true">
+            android:exported="true"
+            android:windowSoftInputMode="stateHidden">
         </activity>
 
         <activity
             android:name=".BagActivity"
             android:theme="@style/Theme.AndroidCA"
-            android:exported="true">
+            android:exported="true"
+            android:windowSoftInputMode="stateHidden">
         </activity>
 
         <activity
             android:name=".CheckoutActivity"
             android:theme="@style/Theme.AndroidCA"
-            android:exported="true">
+            android:exported="true"
+            android:windowSoftInputMode="stateHidden">
         </activity>
-
 
         <meta-data
             android:name="preloaded_fonts"

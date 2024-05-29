@@ -24,7 +24,7 @@ public class ProductDetailActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getLayoutInflater().inflate(R.layout.activity_product_detail, findViewById(R.id.content_frame));
+        setContentView(R.layout.activity_product_detail);
 
         productImage = findViewById(R.id.productImage);
         productName = findViewById(R.id.productName);
@@ -47,9 +47,19 @@ public class ProductDetailActivity extends BaseActivity {
             productPrice.setText("$" + fields.getDouble("price"));
             productRating.setText("Rating: " + fields.getDouble("rating"));
 
-            Glide.with(this)
-                    .load(fields.getString("image_url"))
-                    .into(productImage);
+            // Log the image URL
+            String imageUrl = fields.getString("image_url");
+            Log.d("ProductDetailActivity", "Image URL: " + imageUrl);
+
+            // Ensure the ImageView is initialized
+            if (productImage == null) {
+                Log.e("ProductDetailActivity", "Product ImageView is null");
+            } else {
+                // Load image using Glide
+                Glide.with(this)
+                        .load(imageUrl)
+                        .into(productImage);
+            }
 
             decrementButton.setOnClickListener(v -> {
                 int quantity = Integer.parseInt(quantityEditText.getText().toString());

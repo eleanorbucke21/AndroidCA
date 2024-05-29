@@ -1,6 +1,10 @@
 <resources>
     <string name="app_name">AndroidCA</string>
 
+    <!-- Quote Main Screen Tablet -->
+    <string name="quote_text">"By failing to prepare, you are preparing to fail."</string>
+    <string name="quote_author">- Benjamin Franklin</string>
+
     <!-- Toolbar -->
     <string name="toolbar_title">DAYS COMING</string>
     <string name="profile">Profile</string>
@@ -23,4 +27,5 @@
     <string name="keep_shopping">Keep Shopping</string>
     <string name="add_to_bag">Add to Bag</string>
     <string name="checkout_title">Checkout</string>
-</resources>
+
+    </resources>
