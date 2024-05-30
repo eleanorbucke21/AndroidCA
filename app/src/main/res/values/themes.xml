@@ -51,4 +51,9 @@
         <item name="android:background">#222</item>
         <item name="android:textColor">@android:color/white</item>
     </style>
+
+    <!-- Custom Text Style -->
+    <style name="BoldUnderlineText">
+        <item name="android:textStyle">bold</item>
+    </style>
 </resources>

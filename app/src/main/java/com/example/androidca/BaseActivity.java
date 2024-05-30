@@ -1,9 +1,13 @@
 package com.example.androidca;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,11 +17,19 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.core.view.WindowInsetsControllerCompat;
 
+import com.example.androidca.ui.LoginActivity;
+import com.example.androidca.ui.ProfileActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class BaseActivity extends AppCompatActivity {
 
     protected BottomNavigationView bottomNavigationView;
+    private ImageButton icProfile;
+    private Button signInButton;
+    private SharedPreferences sharedPreferences;
+    private static final String PREFS_NAME = "user_prefs";
+    private static final String KEY_IS_SIGNED_IN = "is_signed_in";
+    private static final String KEY_USERNAME = "username";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +40,33 @@ public class BaseActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false); // Disable default title
+
+        // Initialize shared preferences
+        sharedPreferences = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
+
+        // Set up Profile ImageButton and Sign-In Button
+        icProfile = findViewById(R.id.ic_profile);
+        signInButton = findViewById(R.id.sign_in_button);
+
+        if (isUserSignedIn()) {
+            icProfile.setVisibility(View.VISIBLE);
+            signInButton.setVisibility(View.GONE);
+            icProfile.setOnClickListener(v -> {
+                Intent intent = new Intent(this, ProfileActivity.class);
+                String username = sharedPreferences.getString(KEY_USERNAME, null);
+                if (username != null) {
+                    intent.putExtra("username", username);
+                }
+                startActivity(intent);
+            });
+        } else {
+            icProfile.setVisibility(View.GONE);
+            signInButton.setVisibility(View.VISIBLE);
+            signInButton.setOnClickListener(v -> {
+                Intent intent = new Intent(this, LoginActivity.class);
+                startActivity(intent);
+            });
+        }
 
         // Set up BottomNavigationView
         bottomNavigationView = findViewById(R.id.bottom_navigation);
@@ -44,6 +83,10 @@ public class BaseActivity extends AppCompatActivity {
 
         // Apply window insets for status and navigation bars
         applyWindowInsets();
+    }
+
+    private boolean isUserSignedIn() {
+        return sharedPreferences.getBoolean(KEY_IS_SIGNED_IN, false);
     }
 
     @Override

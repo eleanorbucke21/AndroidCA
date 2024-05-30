@@ -54,8 +54,7 @@
             android:textSize="24sp"
             android:textStyle="bold"
             android:layout_gravity="center_horizontal"
-            android:paddingBottom="16dp"
-            android:textDecorationLine="underline" />
+            android:paddingBottom="16dp" />
 
         <EditText
             android:id="@+id/editTextUsername"

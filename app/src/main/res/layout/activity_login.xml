@@ -50,10 +50,10 @@
             android:layout_height="wrap_content"
             android:text="@string/login"
             android:textSize="24sp"
-            android:textStyle="bold"
             android:layout_gravity="center_horizontal"
             android:paddingBottom="16dp"
-            android:textDecorationLine="underline" />
+            style="@style/BoldUnderlineText" />
+
 
         <EditText
             android:id="@+id/editTextUsername"
@@ -63,7 +63,7 @@
             android:padding="10dp"
             android:background="@drawable/edit_text_background"
             android:textColor="#000"
-            android:marginBottom="16dp"
+            android:layout_marginBottom="16dp"
             android:inputType="text" />
 
         <EditText
@@ -74,7 +74,7 @@
             android:padding="10dp"
             android:background="@drawable/edit_text_background"
             android:textColor="#000"
-            android:marginBottom="16dp"
+            android:layout_marginBottom="16dp"
             android:inputType="textPassword" />
 
         <Button

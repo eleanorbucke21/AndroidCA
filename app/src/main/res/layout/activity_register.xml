@@ -52,8 +52,7 @@
             android:textSize="24sp"
             android:textStyle="bold"
             android:layout_gravity="center_horizontal"
-            android:paddingBottom="16dp"
-            android:textDecorationLine="underline" />
+            android:paddingBottom="16dp" />
 
         <EditText
             android:id="@+id/editTextUsername"
@@ -63,7 +62,7 @@
             android:padding="10dp"
             android:background="@drawable/edit_text_background"
             android:textColor="#000"
-            android:marginBottom="16dp"
+            android:layout_marginBottom="16dp"
             android:inputType="text" />
 
         <EditText
@@ -74,8 +73,30 @@
             android:padding="10dp"
             android:background="@drawable/edit_text_background"
             android:textColor="#000"
-            android:marginBottom="16dp"
+            android:layout_marginBottom="16dp"
             android:inputType="textPassword" />
+
+        <EditText
+            android:id="@+id/editTextEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/email"
+            android:padding="10dp"
+            android:background="@drawable/edit_text_background"
+            android:textColor="#000"
+            android:layout_marginBottom="16dp"
+            android:inputType="textEmailAddress" />
+
+        <EditText
+            android:id="@+id/editTextAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/address"
+            android:padding="10dp"
+            android:background="@drawable/edit_text_background"
+            android:textColor="#000"
+            android:layout_marginBottom="16dp"
+            android:inputType="textPostalAddress" />
 
         <Button
             android:id="@+id/buttonRegister"
@@ -85,7 +106,6 @@
             android:background="#222"
             android:textColor="@android:color/white"
             android:padding="10dp"
-            android:layout_marginBottom="16dp"
             android:layout_gravity="center_horizontal" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

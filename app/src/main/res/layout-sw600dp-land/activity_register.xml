@@ -47,15 +47,15 @@
         android:layout_marginHorizontal="32dp">
 
         <TextView
-            android:id="@+id/registerHeader"
+            android:id="@+id/loginHeader"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/register"
+            android:text="@string/login"
             android:textSize="24sp"
             android:textStyle="bold"
             android:layout_gravity="center_horizontal"
-            android:paddingBottom="16dp"
-            android:textDecorationLine="underline" />
+            android:paddingBottom="16dp" />
+
 
         <EditText
             android:id="@+id/editTextUsername"

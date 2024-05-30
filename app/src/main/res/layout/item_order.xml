@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/textViewOrderDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Order Date"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textViewOrderDetails"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Order Details" />
+
+    <TextView
+        android:id="@+id/textViewTotalAmount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Total Amount" />
+
+    <TextView
+        android:id="@+id/textViewDeliveryAddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Delivery Address" /> <!-- Add deliveryAddress TextView -->
+
+</LinearLayout>

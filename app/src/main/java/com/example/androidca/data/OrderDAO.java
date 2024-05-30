@@ -17,13 +17,14 @@ public class OrderDAO {
         dbHelper = new DatabaseHelper(context);
     }
 
-    public void addOrder(int userId, String orderDate, String orderDetails, double totalAmount) {
+    public void addOrder(int userId, String orderDate, String orderDetails, double totalAmount, String deliveryAddress) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(DatabaseHelper.COLUMN_USER_ID_FK, userId);
         values.put(DatabaseHelper.COLUMN_ORDER_DATE, orderDate);
         values.put(DatabaseHelper.COLUMN_ORDER_DETAILS, orderDetails);
         values.put(DatabaseHelper.COLUMN_TOTAL_AMOUNT, totalAmount);
+        values.put(DatabaseHelper.COLUMN_DELIVERY_ADDRESS, deliveryAddress);
         db.insert(DatabaseHelper.TABLE_ORDERS, null, values);
         db.close();
     }
@@ -36,7 +37,8 @@ public class OrderDAO {
                 DatabaseHelper.COLUMN_USER_ID_FK,
                 DatabaseHelper.COLUMN_ORDER_DATE,
                 DatabaseHelper.COLUMN_ORDER_DETAILS,
-                DatabaseHelper.COLUMN_TOTAL_AMOUNT
+                DatabaseHelper.COLUMN_TOTAL_AMOUNT,
+                DatabaseHelper.COLUMN_DELIVERY_ADDRESS
         };
         String selection = DatabaseHelper.COLUMN_USER_ID_FK + " = ?";
         String[] selectionArgs = {String.valueOf(userId)};
@@ -50,6 +52,7 @@ public class OrderDAO {
                 order.setOrderDate(cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_ORDER_DATE)));
                 order.setOrderDetails(cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_ORDER_DETAILS)));
                 order.setTotalAmount(cursor.getDouble(cursor.getColumnIndex(DatabaseHelper.COLUMN_TOTAL_AMOUNT)));
+                order.setDeliveryAddress(cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_DELIVERY_ADDRESS)));
                 orders.add(order);
             } while (cursor.moveToNext());
         }
