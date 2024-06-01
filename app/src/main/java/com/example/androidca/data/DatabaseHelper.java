@@ -5,16 +5,18 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
+
 import com.example.androidca.models.User;
+
 import java.util.ArrayList;
 import java.util.List;
-
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
     // Database name and version
     private static final String DATABASE_NAME = "ecommerce.db";
-    private static final int DATABASE_VERSION = 1;  // Ensure this is set to 1 for the initial version
+    private static final int DATABASE_VERSION = 1;
 
     // Table names
     public static final String TABLE_USERS = "users";
@@ -82,7 +84,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(COLUMN_EMAIL, "admin@example.com");
         values.put(COLUMN_ADDRESS, "Admin HQ");
         values.put(COLUMN_ROLE, "admin");
-        db.insert(TABLE_USERS, null, values);
+        long result = db.insert(TABLE_USERS, null, values);
+        if (result == -1) {
+            Log.e("DatabaseHelper", "Failed to insert admin user");
+        } else {
+            Log.d("DatabaseHelper", "Admin user inserted with row id: " + result);
+        }
     }
 
     public List<User> getAllUsers() {
@@ -113,11 +120,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return users;
     }
 
-
     public void deleteUser(int userId) {
         SQLiteDatabase db = this.getWritableDatabase();
-        db.delete(TABLE_USERS, COLUMN_USER_ID + " = ?", new String[] { String.valueOf(userId) });
+        db.delete(TABLE_USERS, COLUMN_USER_ID + " = ?", new String[]{String.valueOf(userId)});
         db.close();
     }
-
 }

@@ -54,7 +54,6 @@
             android:paddingBottom="16dp"
             style="@style/BoldUnderlineText" />
 
-
         <EditText
             android:id="@+id/editTextUsername"
             android:layout_width="match_parent"

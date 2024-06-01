@@ -33,7 +33,7 @@ public class ProfileActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profile);
+        getLayoutInflater().inflate(R.layout.activity_profile, findViewById(R.id.content_frame));
 
         editTextName = findViewById(R.id.editTextName);
         editTextAddress = findViewById(R.id.editTextAddress);
@@ -89,6 +89,5 @@ public class ProfileActivity extends BaseActivity {
                 Toast.makeText(this, "Update Failed", Toast.LENGTH_SHORT).show();
             }
         });
-
     }
 }

@@ -8,6 +8,9 @@ import android.util.Log;
 
 import com.example.androidca.models.User;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class UserDAO {
     private DatabaseHelper dbHelper;
 
@@ -15,14 +18,18 @@ public class UserDAO {
         dbHelper = new DatabaseHelper(context);
     }
 
-    public void registerUser(String username, String password, String email, String address) {
+    public void registerUser(String username, String password, String email) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(DatabaseHelper.COLUMN_USERNAME, username);
         values.put(DatabaseHelper.COLUMN_PASSWORD, password);
         values.put(DatabaseHelper.COLUMN_EMAIL, email);
-        values.put(DatabaseHelper.COLUMN_ADDRESS, address);
-        db.insert(DatabaseHelper.TABLE_USERS, null, values);
+        long result = db.insert(DatabaseHelper.TABLE_USERS, null, values);
+        if (result == -1) {
+            Log.e("UserDAO", "Failed to insert user");
+        } else {
+            Log.d("UserDAO", "User inserted with row id: " + result);
+        }
         db.close();
     }
 
@@ -37,6 +44,7 @@ public class UserDAO {
             int passwordIndex = cursor.getColumnIndex(DatabaseHelper.COLUMN_PASSWORD);
             if (passwordIndex != -1) {
                 String dbPassword = cursor.getString(passwordIndex);
+                Log.d("UserDAO", "DB Password: " + dbPassword + " | Entered Password: " + password);
                 cursor.close();
                 db.close();
                 return dbPassword.equals(password);
@@ -44,6 +52,8 @@ public class UserDAO {
                 // Log an error if the password column index is invalid
                 Log.e("UserDAO", "Invalid password column index detected in loginUser method");
             }
+        } else {
+            Log.e("UserDAO", "User not found or cursor is null");
         }
 
         if (cursor != null) {
@@ -53,6 +63,29 @@ public class UserDAO {
         return false;
     }
 
+    public boolean isAdminUser(String username) {
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        String[] columns = {DatabaseHelper.COLUMN_ROLE};
+        String selection = DatabaseHelper.COLUMN_USERNAME + " = ?";
+        String[] selectionArgs = {username};
+        Cursor cursor = db.query(DatabaseHelper.TABLE_USERS, columns, selection, selectionArgs, null, null, null);
+
+        if (cursor != null && cursor.moveToFirst()) {
+            int roleIndex = cursor.getColumnIndex(DatabaseHelper.COLUMN_ROLE);
+            if (roleIndex != -1) {
+                String role = cursor.getString(roleIndex);
+                cursor.close();
+                db.close();
+                return "admin".equals(role);
+            }
+        }
+
+        if (cursor != null) {
+            cursor.close();
+        }
+        db.close();
+        return false;
+    }
 
     public User getUserInfo(String username) {
         SQLiteDatabase db = dbHelper.getReadableDatabase();
@@ -75,7 +108,6 @@ public class UserDAO {
                 String address = cursor.getString(addressIndex);
                 user = new User(id, usernameValue, email, address);
             } else {
-                // Log an error if any column index is invalid
                 Log.e("UserDAO", "Invalid column index detected in getUserInfo method");
             }
 
@@ -84,7 +116,6 @@ public class UserDAO {
         db.close();
         return user;
     }
-
 
     public boolean updateUserInfo(String username, String name, String address) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();

@@ -8,13 +8,12 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import com.example.androidca.BaseActivity;
 import com.example.androidca.R;
 import com.example.androidca.data.UserDAO;
 
-public class RegisterActivity extends AppCompatActivity {
-    private EditText editTextUsername, editTextPassword, editTextEmail, editTextAddress;
+public class RegisterActivity extends BaseActivity {
+    private EditText editTextUsername, editTextPassword, editTextEmail;
     private Button buttonRegister;
     private UserDAO userDAO;
     private TextView registerHeader;
@@ -22,12 +21,11 @@ public class RegisterActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register);
+        getLayoutInflater().inflate(R.layout.activity_register, findViewById(R.id.content_frame));
 
         editTextUsername = findViewById(R.id.editTextUsername);
         editTextPassword = findViewById(R.id.editTextPassword);
         editTextEmail = findViewById(R.id.editTextEmail);
-        editTextAddress = findViewById(R.id.editTextAddress);
         buttonRegister = findViewById(R.id.buttonRegister);
         registerHeader = findViewById(R.id.registerHeader);
 
@@ -42,9 +40,13 @@ public class RegisterActivity extends AppCompatActivity {
             String username = editTextUsername.getText().toString();
             String password = editTextPassword.getText().toString();
             String email = editTextEmail.getText().toString();
-            String address = editTextAddress.getText().toString();
 
-            userDAO.registerUser(username, password, email, address);
+            if (username.isEmpty() || password.isEmpty() || email.isEmpty()) {
+                Toast.makeText(this, "Please fill all fields", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            userDAO.registerUser(username, password, email);
             Toast.makeText(this, "User Registered", Toast.LENGTH_SHORT).show();
             finish();
         });

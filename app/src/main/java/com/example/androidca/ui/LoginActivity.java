@@ -4,30 +4,35 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.style.UnderlineSpan;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import com.example.androidca.BaseActivity;
 import com.example.androidca.R;
+import com.example.androidca.data.UserDAO;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends BaseActivity {
     private EditText editTextUsername, editTextPassword;
     private Button buttonLogin;
     private TextView registerText, loginHeader;
+    private UserDAO userDAO;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        getLayoutInflater().inflate(R.layout.activity_login, findViewById(R.id.content_frame));
 
         editTextUsername = findViewById(R.id.editTextUsername);
         editTextPassword = findViewById(R.id.editTextPassword);
         buttonLogin = findViewById(R.id.buttonLogin);
         registerText = findViewById(R.id.registerText);
         loginHeader = findViewById(R.id.loginHeader);
+
+        // Initialize UserDAO
+        userDAO = new UserDAO(this);
 
         // Underline the login header text programmatically
         SpannableString loginText = new SpannableString(getString(R.string.login));
@@ -38,20 +43,24 @@ public class LoginActivity extends AppCompatActivity {
             String username = editTextUsername.getText().toString();
             String password = editTextPassword.getText().toString();
 
-            if (isValidCredentials(username, password)) {
-                if (isAdminUser(username, password)) {
+            Log.d("LoginActivity", "Attempting to log in with username: " + username + " and password: " + password);
+
+            if (userDAO.loginUser(username, password)) {
+                Log.d("LoginActivity", "Login successful for username: " + username);
+                // Redirect based on user role (admin/user)
+                if (userDAO.isAdminUser(username)) {
                     // Redirect to AdminProfileActivity
                     Intent intent = new Intent(this, AdminProfileActivity.class);
                     startActivity(intent);
-                    finish(); // Optional: finish LoginActivity so user can't return with back button
                 } else {
                     // Redirect to normal user profile activity
-                    Intent intent = new Intent(this, ProfileActivity.class);  // Updated to use the correct class name
-                    intent.putExtra("username", username);  // Pass the username to ProfileActivity
+                    Intent intent = new Intent(this, ProfileActivity.class);
+                    intent.putExtra("username", username);
                     startActivity(intent);
-                    finish(); // Optional: finish LoginActivity
                 }
+                finish();
             } else {
+                Log.e("LoginActivity", "Invalid credentials for username: " + username);
                 // Handle login failure
                 Toast.makeText(this, "Invalid credentials", Toast.LENGTH_SHORT).show();
             }
@@ -61,17 +70,5 @@ public class LoginActivity extends AppCompatActivity {
             // Handle registration navigation logic
             Toast.makeText(this, "Go to Register Activity clicked", Toast.LENGTH_SHORT).show();
         });
-    }
-
-    private boolean isValidCredentials(String username, String password) {
-        // Here you should implement your actual credentials checking logic
-        // This example just checks if the username is "admin" and the password is "Limerick"
-        return "admin".equals(username) && "Limerick".equals(password);
-    }
-
-    private boolean isAdminUser(String username, String password) {
-        // This function determines if the user is an admin
-        // Here it's just a placeholder to match the example credentials
-        return "admin".equals(username) && "Limerick".equals(password);
     }
 }
