@@ -21,6 +21,9 @@ import com.example.androidca.ui.LoginActivity;
 import com.example.androidca.ui.ProfileActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import com.example.androidca.data.DatabaseHelper;
+import android.database.sqlite.SQLiteDatabase;
+
 public class BaseActivity extends AppCompatActivity {
 
     protected BottomNavigationView bottomNavigationView;
@@ -30,10 +33,12 @@ public class BaseActivity extends AppCompatActivity {
     private static final String PREFS_NAME = "user_prefs";
     private static final String KEY_IS_SIGNED_IN = "is_signed_in";
     private static final String KEY_USERNAME = "username";
+    private DatabaseHelper dbHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.d("BaseActivity", "onCreate() called");
         setContentView(R.layout.activity_base);
 
         // Set up the Toolbar
@@ -43,6 +48,10 @@ public class BaseActivity extends AppCompatActivity {
 
         // Initialize shared preferences
         sharedPreferences = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
+
+        // Initialize DatabaseHelper and access the database
+        dbHelper = new DatabaseHelper(this);
+        SQLiteDatabase db = dbHelper.getWritableDatabase(); // This ensures the database is created if it doesn't exist
 
         // Set up Profile ImageButton and Sign-In Button
         icProfile = findViewById(R.id.ic_profile);
@@ -70,16 +79,7 @@ public class BaseActivity extends AppCompatActivity {
 
         // Set up BottomNavigationView
         bottomNavigationView = findViewById(R.id.bottom_navigation);
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                boolean handled = handleNavigation(item);
-                if (handled) {
-                    resetBottomNavigationSelection();
-                }
-                return handled;
-            }
-        });
+        bottomNavigationView.setOnNavigationItemSelectedListener(this::handleNavigation);
 
         // Apply window insets for status and navigation bars
         applyWindowInsets();
@@ -121,16 +121,16 @@ public class BaseActivity extends AppCompatActivity {
             Log.d("BaseActivity", "Products selected");
             startActivity(new Intent(this, ProductsActivity.class));
             return true;
-        } else {
-            return false;
         }
+        return false;
     }
+
 
     private void applyWindowInsets() {
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
+            return WindowInsetsCompat.CONSUMED;
         });
 
         WindowInsetsControllerCompat windowInsetsController = ViewCompat.getWindowInsetsController(getWindow().getDecorView());
@@ -138,5 +138,8 @@ public class BaseActivity extends AppCompatActivity {
             windowInsetsController.setAppearanceLightStatusBars(false);
             windowInsetsController.setAppearanceLightNavigationBars(false);
         }
+    }
+    protected SharedPreferences getSharedPreferences() {
+        return sharedPreferences;
     }
 }

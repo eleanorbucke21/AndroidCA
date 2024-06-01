@@ -29,46 +29,35 @@
             android:name=".MainActivity"
             android:theme="@style/Theme.AndroidCA"
             android:exported="true"
-            android:windowSoftInputMode="stateHidden">
-        </activity>
+            android:windowSoftInputMode="stateHidden" />
 
         <activity
-            android:name=".CategoriesActivity"
+            android:name=".ui.LoginActivity"
             android:theme="@style/Theme.AndroidCA"
             android:exported="true"
-            android:windowSoftInputMode="stateHidden">
-        </activity>
+            android:windowSoftInputMode="stateHidden" />
 
         <activity
-            android:name=".ProductsActivity"
+            android:name=".ui.RegisterActivity"
             android:theme="@style/Theme.AndroidCA"
             android:exported="true"
-            android:windowSoftInputMode="stateHidden">
-        </activity>
+            android:windowSoftInputMode="stateHidden" />
 
         <activity
-            android:name=".ProductDetailActivity"
+            android:name=".ui.ProfileActivity"
             android:theme="@style/Theme.AndroidCA"
             android:exported="true"
-            android:windowSoftInputMode="stateHidden">
-        </activity>
+            android:windowSoftInputMode="stateHidden" />
+
 
         <activity
-            android:name=".BagActivity"
+            android:name=".ui.AdminProfileActivity"
             android:theme="@style/Theme.AndroidCA"
             android:exported="true"
-            android:windowSoftInputMode="stateHidden">
-        </activity>
+            android:windowSoftInputMode="stateHidden" />
 
-        <activity
-            android:name=".CheckoutActivity"
-            android:theme="@style/Theme.AndroidCA"
-            android:exported="true"
-            android:windowSoftInputMode="stateHidden">
-        </activity>
-
-        <meta-data
-            android:name="preloaded_fonts"
-            android:resource="@array/preloaded_fonts" />
-    </application>
-</manifest>
+    <meta-data
+        android:name="preloaded_fonts"
+        android:resource="@array/preloaded_fonts" />
+</application>
+    </manifest>

@@ -29,12 +29,14 @@
     <string name="add_to_bag">Add to Bag</string>
     <string name="checkout_title">Checkout</string>
 
-    <!-- Login & Register -->
+    <!-- Login, Register & Logout -->
     <string name="login">Login</string>
     <string name="username">Username</string>
     <string name="password">Password</string>
     <string name="no_account_register_now">No account? <font color='@color/red'>Register now</font></string>
     <string name="register">Register</string>
+    <string name="logout">Logout</string>
+
 
     <!-- Profile -->
     <string name="delivery_address">Delivery Address</string>
@@ -46,6 +48,12 @@
     <string name="date">Date</string>
     <string name="items">Items</string>
     <string name="order_total">Order Total</string>
+
+
+    <!-- Admin Profile-->
+    <string name="admin_greeting">Welcome, Admin!</string>
+    <string name="manage_users">Manage Users</string>
+    <string name="admin_page_title">Admin Dashboard</string>
 
     <!-- Additional strings for address and email -->
     <string name="address">Address</string>

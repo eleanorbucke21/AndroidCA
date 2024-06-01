@@ -8,10 +8,10 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.androidca.BaseActivity;
 import com.example.androidca.R;
 import com.example.androidca.data.OrderDAO;
 import com.example.androidca.data.UserDAO;
@@ -20,7 +20,8 @@ import com.example.androidca.models.User;
 
 import java.util.List;
 
-public class ProfileActivity extends AppCompatActivity {
+public class ProfileActivity extends BaseActivity {
+
     private EditText editTextName, editTextAddress;
     private Button buttonUpdate;
     private UserDAO userDAO;
@@ -88,5 +89,6 @@ public class ProfileActivity extends AppCompatActivity {
                 Toast.makeText(this, "Update Failed", Toast.LENGTH_SHORT).show();
             }
         });
+
     }
 }

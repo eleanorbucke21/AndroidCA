@@ -3,9 +3,17 @@ package com.example.androidca.models;
 public class User {
     private int id;
     private String username;
-    private String password;
+    private String password;  // If you need it for other operations, keep it, but avoid passing it around unnecessarily
     private String email;
     private String address;
+
+    // Constructor needed for database operations
+    public User(int id, String username, String email, String address) {
+        this.id = id;
+        this.username = username;
+        this.email = email;
+        this.address = address;
+    }
 
     // Getters and setters
     public int getId() {
