@@ -28,47 +28,92 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <TextView
-                android:layout_width="wrap_content"
+            <!-- Button to show FAQ section -->
+            <Button
+                android:id="@+id/btnFAQ"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/faq"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                android:textColor="@android:color/white"
-                android:layout_marginBottom="8dp" />
+                android:layout_marginTop="16dp"
+                android:background="?attr/colorPrimary"
+                android:textColor="@android:color/white" />
 
-            <!-- Add your FAQ content here -->
-            <TextView
-                android:layout_width="wrap_content"
+            <!-- FAQ Information Section (Initially Hidden) -->
+            <LinearLayout
+                android:id="@+id/faqInformationSection"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/faq_content"
-                android:textColor="@android:color/white"
-                android:layout_marginBottom="16dp" />
+                android:orientation="vertical"
+                android:visibility="gone"
+                android:padding="16dp"
+                android:background="@drawable/rounded_background"
+                android:layout_marginTop="16dp">
 
-            <TextView
-                android:layout_width="wrap_content"
+                <TextView
+                    android:id="@+id/faqInformation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/white" />
+            </LinearLayout>
+
+            <!-- Button to show delivery questions -->
+            <Button
+                android:id="@+id/btnDeliveryQuestions"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/delivery_questions"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                android:textColor="@android:color/white"
                 android:layout_marginTop="16dp"
-                android:layout_marginBottom="8dp" />
+                android:background="?attr/colorPrimary"
+                android:textColor="@android:color/white" />
 
-            <!-- Add your Delivery Questions content here -->
-            <TextView
-                android:layout_width="wrap_content"
+            <!-- Delivery Information Section (Initially Hidden) -->
+            <LinearLayout
+                android:id="@+id/deliveryInformationSection"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/delivery_prices_content"
-                android:textColor="@android:color/white"
-                android:layout_marginBottom="16dp" />
+                android:orientation="vertical"
+                android:visibility="gone"
+                android:padding="16dp"
+                android:background="@drawable/rounded_background"
+                android:layout_marginTop="16dp">
 
+                <TextView
+                    android:id="@+id/deliveryInformation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/white" />
+            </LinearLayout>
+
+            <!-- Button to show hidden section -->
             <Button
-                android:id="@+id/btnContactUs"
+                android:id="@+id/btnShowContactUs"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/contact_us"
                 android:layout_marginTop="16dp"
                 android:background="?attr/colorPrimary"
                 android:textColor="@android:color/white" />
+
+            <!-- Hidden section -->
+            <LinearLayout
+                android:id="@+id/hiddenSection"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone"
+                android:paddingTop="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Hidden Content"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    android:textColor="@android:color/white"
+                    android:layout_marginBottom="8dp" />
+
+                <!-- Add your hidden content here -->
+
+            </LinearLayout>
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>

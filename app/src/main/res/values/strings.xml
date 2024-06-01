@@ -57,11 +57,41 @@
     <string name="admin_page_title">Admin Dashboard</string>
 
     <!-- Info Page -->
+    <string name="bg_swamp_city">Background image of a swamp overgrown city in apocalypse.</string>
+
     <string name="faq">FAQ</string>
+    <string name="faq_content"><![CDATA[
+        <p><strong>WHAT IS A MRE?</strong> MREs were brought into military use during the 1980\'s to replace heavy, bulky food supplies. MREs are self-contained meals that include a way to heat your meal without all the hassle. They have a durable packaging that can withstand high drops and typically have a shelf-life of about 5 years(depending on storage conditions). Long before the MREs became the meal of choice for the U.S. Military, canned wet rations were the longtime favorite and only real option the military had. In the ‘60s and ‘70s as dehydrated food become more readily available and the military looked to replace the bulky and heavy canned food system it had relied on for so long. After a long period of testing and surveying, the MREs became standard issue in 1986.</p>
+        <p><strong>DO WE SELL MILITARY MRE\'S?</strong> Yes and no. Military MREs are not sold to the public. However, the same contractors who make MREs for the Department of Defense, also make civilian MREs. These MREs are made to the same specifications as military MREs, but with a few differences. Civilian MREs come in a different packaging and don\'t include all of the same items, such as chewing gum, toilet paper, and other extra items.</p>
+        <p><strong>HOW DO I USE MY MRE?</strong> MREs are very easy and simple to use and they don’t require much if any prep time. Here are 3 simple steps:
+        <ol>
+            <li>When opening your MRE, the entrée should be contained in a self-contained box that will give a description of the entrée that you will be eating. The MRE is inside the box is in a flexible retort pouch (aluminum polypropylene laminate pouch). Remember the food is already cooked and can be eaten hot or cold, directly out of the pouch.</li>
+            <li>Heating your MRE: MREs can be heated in a variety of ways and the most common way is using a Flame-less Ration Heater (FRH) also known as an MRE Heater. These are very simple to use and require just a small amount of water to activate. If you don\'t have an MRE Heater, you can use the following methods to heat or warm your MRE:
+                <ul>
+                    <li>Put the pouch in boiling water for 5 minutes.</li>
+                    <li>Place near or on a fire until hot. A hot rock works great for this purpose.</li>
+                    <li>Heat the food in a microwave or over a stove top. Be sure to remove food from the retort pouch first.</li>
+                </ul>
+            </li>
+            <li>Enjoy your MRE! Once you have removed your MRE from the heating source (if you need to heat your meal) wait for your MRE to cool down so you do not burn yourself. Once it cools down to the point you can handle the MRE, it has a perforated edge on the sides that makes it easy to tear open. Tear your MRE open and you can eat out of the pouch or you can pour it into a plate and enjoy your meal.</li>
+        </ol></p>
+        <p><strong>HOW LONG WILL A MRE STORE?</strong> A MRE\'s shelf life is about 5 years, if stored at 75° F or less. The cooler the temperature, the longer they will store. Some items in an MRE will last longer than 5 years, although the wet pack entrees typically expire within 5 years.</p>
+    ]]></string>
+
+
     <string name="delivery_questions">Delivery Questions</string>
-    <string name="bg_swamp_city">swamp city</string>
-    <string name="faq_content">Here are some frequently asked questions...</string>
-    <string name="delivery_prices_content">Here are the details on delivery prices...</string>
+    <string name="delivery_information"><![CDATA[
+        Home Delivery<br/><br/>
+
+        <ul>
+            <li>Delivery times will be confirmed at checkout. There are no additional duties charged as a result of Brexit.</li>
+            <li>Orders will be charged at €5 for shipping per order.</li>
+            <li>Your order will normally be delivered next day from Hub or 3 days from Éire.</li>
+            <li>Please be aware that if you place multiple orders close to each other, they may be packed together to ensure you receive the goods as quickly as possible.</li>
+            <li>Will I be charged customs fees?<br/>Our terms of sale to our customers in Ireland are delivery duty paid. That is to say, the amount paid by you is fully inclusive of delivery to the specified delivery address and all duties, taxes and customs clearance fees.</li>
+            <li>Sale delivery information<br/>During sale periods, please allow 14-21 days for your delivery. Your delivery date will be confirmed at the time of order. * Subject to stock, courier availability and courier area/store location. Exceptions apply, see full terms and conditions.</li>
+        </ul>
+    ]]></string>
 
     <!-- Contact Us form -->
     <string name="bg_image_description">Swamp overgrown city in apocalypse</string>
