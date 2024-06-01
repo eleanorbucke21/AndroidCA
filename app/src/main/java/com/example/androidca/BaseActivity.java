@@ -35,11 +35,8 @@ public class BaseActivity extends AppCompatActivity {
     private ImageButton signInButton;
     private ImageButton logoutButton;
     private SharedPreferences sharedPreferences;
-    private static final String PREFS_NAME = "user_prefs";
-    private static final String KEY_IS_SIGNED_IN = "is_signed_in";
-    private static final String KEY_USERNAME = "username";
-    private static final String KEY_USER_ROLE = "user_role";
     private DatabaseHelper dbHelper;
+    private static final String TAG = "BaseActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +49,7 @@ public class BaseActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayShowTitleEnabled(false); // Disable default title
 
         // Initialize shared preferences
-        sharedPreferences = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
+        sharedPreferences = getSharedPreferences(Constants.PREFS_NAME, MODE_PRIVATE);
 
         // Initialize DatabaseHelper and access the database
         dbHelper = new DatabaseHelper(this);
@@ -63,39 +60,35 @@ public class BaseActivity extends AppCompatActivity {
         signInButton = findViewById(R.id.sign_in_button);
         logoutButton = findViewById(R.id.logout_button);
 
-        if (isUserSignedIn()) {
-            icProfile.setVisibility(View.VISIBLE);
-            logoutButton.setVisibility(View.VISIBLE);
-            signInButton.setVisibility(View.GONE);
+        // Check the user's sign-in status and set button visibility
+        updateButtonVisibility();
 
-            icProfile.setOnClickListener(v -> {
-                String username = sharedPreferences.getString(KEY_USERNAME, null);
-                String userRole = sharedPreferences.getString(KEY_USER_ROLE, null);
-                if (userRole != null && userRole.equals("admin")) {
-                    Intent intent = new Intent(this, AdminProfileActivity.class);
-                    intent.putExtra("username", username);
-                    startActivity(intent);
-                } else {
-                    Intent intent = new Intent(this, ProfileActivity.class);
-                    intent.putExtra("username", username);
-                    startActivity(intent);
-                }
-            });
-
-            logoutButton.setOnClickListener(v -> {
-                Intent intent = new Intent(this, LogoutActivity.class);
+        icProfile.setOnClickListener(v -> {
+            String username = sharedPreferences.getString(Constants.KEY_USERNAME, null);
+            String userRole = sharedPreferences.getString(Constants.KEY_USER_ROLE, null);
+            Log.d(TAG, "Profile icon clicked, username: " + username + ", role: " + userRole);
+            if (userRole != null && userRole.equals("admin")) {
+                Intent intent = new Intent(this, AdminProfileActivity.class);
+                intent.putExtra("username", username);
                 startActivity(intent);
-            });
-        } else {
-            icProfile.setVisibility(View.GONE);
-            logoutButton.setVisibility(View.GONE);
-            signInButton.setVisibility(View.VISIBLE);
-
-            signInButton.setOnClickListener(v -> {
-                Intent intent = new Intent(this, LoginActivity.class);
+            } else {
+                Intent intent = new Intent(this, ProfileActivity.class);
+                intent.putExtra("username", username);
                 startActivity(intent);
-            });
-        }
+            }
+        });
+
+        logoutButton.setOnClickListener(v -> {
+            Log.d(TAG, "Logout button clicked");
+            Intent intent = new Intent(this, LogoutActivity.class);
+            startActivity(intent);
+        });
+
+        signInButton.setOnClickListener(v -> {
+            Log.d(TAG, "Sign-In button clicked");
+            Intent intent = new Intent(this, LoginActivity.class);
+            startActivity(intent);
+        });
 
         // Set up BottomNavigationView
         bottomNavigationView = findViewById(R.id.bottom_navigation);
@@ -106,16 +99,45 @@ public class BaseActivity extends AppCompatActivity {
     }
 
     private boolean isUserSignedIn() {
-        return sharedPreferences.getBoolean(KEY_IS_SIGNED_IN, false);
+        boolean signedIn = sharedPreferences.getBoolean(Constants.KEY_IS_SIGNED_IN, false);
+        String username = sharedPreferences.getString(Constants.KEY_USERNAME, "N/A");
+        String userRole = sharedPreferences.getString(Constants.KEY_USER_ROLE, "N/A");
+        Log.d(TAG, "isUserSignedIn: " + signedIn);
+        Log.d(TAG, "username: " + username);
+        Log.d(TAG, "userRole: " + userRole);
+        return signedIn;
+    }
+
+    private void updateButtonVisibility() {
+        boolean isSignedIn = isUserSignedIn();
+        Log.d(TAG, "updateButtonVisibility: isSignedIn = " + isSignedIn);
+
+        if (isSignedIn) {
+            Log.d(TAG, "User is signed in");
+            icProfile.setVisibility(View.VISIBLE);
+            logoutButton.setVisibility(View.VISIBLE);
+            signInButton.setVisibility(View.GONE);
+        } else {
+            Log.d(TAG, "User is not signed in");
+            icProfile.setVisibility(View.GONE);
+            logoutButton.setVisibility(View.GONE);
+            signInButton.setVisibility(View.VISIBLE);
+        }
+
+        // Force a re-draw of the toolbar to update the visibility of the buttons
+        findViewById(R.id.toolbar).invalidate();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
+        Log.d(TAG, "onResume called");
+        updateButtonVisibility();
         resetBottomNavigationSelection();
     }
 
     protected void resetBottomNavigationSelection() {
+        Log.d(TAG, "resetBottomNavigationSelection called");
         bottomNavigationView.getMenu().setGroupCheckable(0, false, true);
         for (int i = 0; i < bottomNavigationView.getMenu().size(); i++) {
             bottomNavigationView.getMenu().getItem(i).setChecked(false);
@@ -125,24 +147,25 @@ public class BaseActivity extends AppCompatActivity {
 
     protected boolean handleNavigation(@NonNull MenuItem item) {
         int itemId = item.getItemId();
+        Log.d(TAG, "Navigation item selected: " + itemId);
         if (itemId == R.id.navigation_home) {
-            Log.d("BaseActivity", "Home selected");
+            Log.d(TAG, "Home selected");
             startActivity(new Intent(this, MainActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
             return true;
         } else if (itemId == R.id.navigation_search) {
-            Log.d("BaseActivity", "Categories selected");
+            Log.d(TAG, "Categories selected");
             startActivity(new Intent(this, CategoriesActivity.class));
             return true;
         } else if (itemId == R.id.navigation_cart) {
-            Log.d("BaseActivity", "Bag selected");
+            Log.d(TAG, "Bag selected");
             startActivity(new Intent(this, BagActivity.class));
             return true;
         } else if (itemId == R.id.navigation_shop) {
-            Log.d("BaseActivity", "Products selected");
+            Log.d(TAG, "Products selected");
             startActivity(new Intent(this, ProductsActivity.class));
             return true;
         } else if (itemId == R.id.navigation_info) {
-            Log.d("BaseActivity", "Info selected");
+            Log.d(TAG, "Info selected");
             startActivity(new Intent(this, InfoActivity.class));
             return true;
         }

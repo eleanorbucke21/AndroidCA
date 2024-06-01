@@ -1,6 +1,7 @@
 package com.example.androidca.ui;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.style.UnderlineSpan;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.androidca.BaseActivity;
+import com.example.androidca.Constants;
 import com.example.androidca.R;
 import com.example.androidca.data.UserDAO;
 
@@ -47,12 +49,25 @@ public class LoginActivity extends BaseActivity {
 
             if (userDAO.loginUser(username, password)) {
                 Log.d("LoginActivity", "Login successful for username: " + username);
-                // Redirect based on user role (admin/user)
+
+                // Save login status, username, and role in SharedPreferences
+                SharedPreferences sharedPreferences = getSharedPreferences(Constants.PREFS_NAME, MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putBoolean(Constants.KEY_IS_SIGNED_IN, true);
+                editor.putString(Constants.KEY_USERNAME, username);
+
                 if (userDAO.isAdminUser(username)) {
+                    editor.putString(Constants.KEY_USER_ROLE, "admin");
+                    editor.apply();
+
                     // Redirect to AdminProfileActivity
                     Intent intent = new Intent(this, AdminProfileActivity.class);
+                    intent.putExtra("username", username);
                     startActivity(intent);
                 } else {
+                    editor.putString(Constants.KEY_USER_ROLE, "user");
+                    editor.apply();
+
                     // Redirect to normal user profile activity
                     Intent intent = new Intent(this, ProfileActivity.class);
                     intent.putExtra("username", username);
