@@ -37,6 +37,12 @@
             android:exported="true"
             android:windowSoftInputMode="stateHidden" />
 
+        <activity
+            android:name=".ui.LogoutActivity"
+            android:theme="@style/Theme.AndroidCA"
+            android:exported="true"
+            android:windowSoftInputMode="stateHidden" />
+
         <activity android:name=".ui.InfoActivity"
             android:theme="@style/Theme.AndroidCA"
             android:exported="true"

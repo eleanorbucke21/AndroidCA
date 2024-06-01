@@ -18,7 +18,9 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         android:theme="?attr/actionBarTheme"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:contentInsetStartWithNavigation="0dp"
+        app:contentInsetEndWithActions="0dp">
 
         <TextView
             android:id="@+id/toolbar_text"
@@ -28,30 +30,50 @@
             android:fontFamily="@font/oswald_medium"
             android:text="@string/toolbar_title"
             android:textColor="@color/white"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:layout_weight="1"/>
 
-        <ImageButton
-            android:id="@+id/ic_profile"
-            android:layout_width="20sp"
-            android:layout_height="20sp"
-            android:layout_gravity="end"
-            android:layout_marginEnd="16dp"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:src="@drawable/ic_profile"
-            android:contentDescription="@string/profile"
-            android:scaleType="centerInside"
-            android:visibility="gone" />
-
-        <Button
-            android:id="@+id/sign_in_button"
+        <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/sign_in"
-            android:background="@color/colorPrimary"
-            android:textColor="@android:color/white"
-            android:layout_marginEnd="16dp"
-            android:layout_gravity="end"
-            android:visibility="gone" />
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_gravity="end">
+
+            <ImageButton
+                android:id="@+id/ic_profile"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:padding="8dp"
+                android:src="@drawable/ic_profile"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/profile"
+                android:scaleType="centerInside"
+                android:visibility="visible" />
+
+            <ImageButton
+                android:id="@+id/sign_in_button"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:padding="8dp"
+                android:src="@drawable/ic_login"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/sign_in"
+                android:scaleType="centerInside"
+                android:visibility="visible" />
+
+            <ImageButton
+                android:id="@+id/logout_button"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:padding="8dp"
+                android:src="@drawable/ic_logout"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/logout"
+                android:scaleType="centerInside"
+                android:visibility="visible" />
+
+        </LinearLayout>
+
     </androidx.appcompat.widget.Toolbar>
 
     <!-- Content Frame for Specific Activities -->

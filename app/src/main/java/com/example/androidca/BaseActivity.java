@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,17 +24,21 @@ import com.example.androidca.ui.LoginActivity;
 import com.example.androidca.MainActivity;
 import com.example.androidca.ProductsActivity;
 import com.example.androidca.ui.ProfileActivity;
+import com.example.androidca.ui.AdminProfileActivity;
+import com.example.androidca.ui.LogoutActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class BaseActivity extends AppCompatActivity {
 
     protected BottomNavigationView bottomNavigationView;
     private ImageButton icProfile;
-    private Button signInButton;
+    private ImageButton signInButton;
+    private ImageButton logoutButton;
     private SharedPreferences sharedPreferences;
     private static final String PREFS_NAME = "user_prefs";
     private static final String KEY_IS_SIGNED_IN = "is_signed_in";
     private static final String KEY_USERNAME = "username";
+    private static final String KEY_USER_ROLE = "user_role";
     private DatabaseHelper dbHelper;
 
     @Override
@@ -55,24 +58,39 @@ public class BaseActivity extends AppCompatActivity {
         dbHelper = new DatabaseHelper(this);
         SQLiteDatabase db = dbHelper.getWritableDatabase(); // This ensures the database is created if it doesn't exist
 
-        // Set up Profile ImageButton and Sign-In Button
+        // Set up Profile ImageButton, Sign-In Button, and Logout Button
         icProfile = findViewById(R.id.ic_profile);
         signInButton = findViewById(R.id.sign_in_button);
+        logoutButton = findViewById(R.id.logout_button);
 
         if (isUserSignedIn()) {
             icProfile.setVisibility(View.VISIBLE);
+            logoutButton.setVisibility(View.VISIBLE);
             signInButton.setVisibility(View.GONE);
+
             icProfile.setOnClickListener(v -> {
-                Intent intent = new Intent(this, ProfileActivity.class);
                 String username = sharedPreferences.getString(KEY_USERNAME, null);
-                if (username != null) {
+                String userRole = sharedPreferences.getString(KEY_USER_ROLE, null);
+                if (userRole != null && userRole.equals("admin")) {
+                    Intent intent = new Intent(this, AdminProfileActivity.class);
                     intent.putExtra("username", username);
+                    startActivity(intent);
+                } else {
+                    Intent intent = new Intent(this, ProfileActivity.class);
+                    intent.putExtra("username", username);
+                    startActivity(intent);
                 }
+            });
+
+            logoutButton.setOnClickListener(v -> {
+                Intent intent = new Intent(this, LogoutActivity.class);
                 startActivity(intent);
             });
         } else {
             icProfile.setVisibility(View.GONE);
+            logoutButton.setVisibility(View.GONE);
             signInButton.setVisibility(View.VISIBLE);
+
             signInButton.setOnClickListener(v -> {
                 Intent intent = new Intent(this, LoginActivity.class);
                 startActivity(intent);
