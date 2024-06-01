@@ -22,7 +22,7 @@ import java.util.List;
 
 public class ProfileActivity extends BaseActivity {
 
-    private EditText editTextName, editTextAddress;
+    private EditText editTextName, editTextAddressLine1, editTextAddressLine2, editTextAddressLine3, editTextPostcode, editTextCountry;
     private Button buttonUpdate;
     private UserDAO userDAO;
     private OrderDAO orderDAO;
@@ -36,7 +36,11 @@ public class ProfileActivity extends BaseActivity {
         getLayoutInflater().inflate(R.layout.activity_profile, findViewById(R.id.content_frame));
 
         editTextName = findViewById(R.id.editTextName);
-        editTextAddress = findViewById(R.id.editTextAddress);
+        editTextAddressLine1 = findViewById(R.id.editTextAddressLine1);
+        editTextAddressLine2 = findViewById(R.id.editTextAddressLine2);
+        editTextAddressLine3 = findViewById(R.id.editTextAddressLine3);
+        editTextPostcode = findViewById(R.id.editTextPostcode);
+        editTextCountry = findViewById(R.id.editTextCountry);
         buttonUpdate = findViewById(R.id.buttonUpdate);
         recyclerView = findViewById(R.id.recyclerViewOrders);
 
@@ -63,8 +67,12 @@ public class ProfileActivity extends BaseActivity {
         if (username != null) {
             User user = userDAO.getUserInfo(username);
             if (user != null) {
-                editTextName.setText(user.getUsername());
-                editTextAddress.setText(user.getAddress());
+                editTextName.setText(user.getName());
+                editTextAddressLine1.setText(user.getAddressLine1());
+                editTextAddressLine2.setText(user.getAddressLine2());
+                editTextAddressLine3.setText(user.getAddressLine3());
+                editTextPostcode.setText(user.getPostcode());
+                editTextCountry.setText(user.getCountry());
 
                 // Load and display order history
                 List<Order> orders = orderDAO.getOrders(user.getId());
@@ -81,9 +89,18 @@ public class ProfileActivity extends BaseActivity {
 
         buttonUpdate.setOnClickListener(v -> {
             String name = editTextName.getText().toString();
-            String address = editTextAddress.getText().toString();
+            String addressLine1 = editTextAddressLine1.getText().toString();
+            String addressLine2 = editTextAddressLine2.getText().toString();
+            String addressLine3 = editTextAddressLine3.getText().toString();
+            String postcode = editTextPostcode.getText().toString();
+            String country = editTextCountry.getText().toString();
 
-            if (userDAO.updateUserInfo(username, name, address)) {
+            if (name.isEmpty() || addressLine1.isEmpty() || postcode.isEmpty() || country.isEmpty()) {
+                Toast.makeText(this, "Please fill all required fields", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            if (userDAO.updateUserInfo(username, name, addressLine1, addressLine2, addressLine3, postcode, country)) {
                 Toast.makeText(this, "Profile Updated Successfully", Toast.LENGTH_SHORT).show();
             } else {
                 Toast.makeText(this, "Update Failed", Toast.LENGTH_SHORT).show();

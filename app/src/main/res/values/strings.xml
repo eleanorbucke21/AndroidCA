@@ -42,14 +42,15 @@
 
     <!-- Profile -->
     <string name="delivery_address">Delivery Address</string>
-    <string name="name_hint">Enter your name</string>
-    <string name="address_hint">Enter your address</string>
-    <string name="update_information">Update Information</string>
     <string name="order_history">Order History</string>
-    <string name="order_number">Order Number</string>
-    <string name="date">Date</string>
-    <string name="items">Items</string>
-    <string name="order_total">Order Total</string>
+    <string name="name_hint">Name</string>
+    <string name="address_hint">Address</string>
+    <string name="update_information">Update Information</string>
+    <string name="address_line_1_hint">Address Line 1</string>
+    <string name="address_line_2_hint">Address Line 2</string>
+    <string name="address_line_3_hint">Address Line 3</string>
+    <string name="postcode_hint">Postcode</string>
+    <string name="country_hint">Country</string>
 
     <!-- Admin Profile-->
     <string name="admin_greeting">Welcome, Admin!</string>

@@ -35,9 +35,18 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
         User user = users.get(position);
         holder.textViewUsername.setText(user.getUsername());
         holder.textViewEmail.setText(user.getEmail());
-        holder.textViewAddress.setText(user.getAddress());
+
+        // Concatenate address fields to form a full address
+        String fullAddress = user.getAddressLine1() + "\n" +
+                user.getAddressLine2() + "\n" +
+                user.getAddressLine3() + "\n" +
+                user.getPostcode() + "\n" +
+                user.getCountry();
+
+        holder.textViewAddress.setText(fullAddress.trim());
         holder.deleteButton.setOnClickListener(v -> listener.onDeleteClick(position));
     }
+
 
     @Override
     public int getItemCount() {
