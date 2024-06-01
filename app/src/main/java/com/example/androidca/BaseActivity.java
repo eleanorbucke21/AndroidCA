@@ -2,13 +2,13 @@ package com.example.androidca;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -16,13 +16,16 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.core.view.WindowInsetsControllerCompat;
-
+import com.example.androidca.data.DatabaseHelper;
+import com.example.androidca.BagActivity;
+import com.example.androidca.CategoriesActivity;
+import com.example.androidca.ui.ContactUsActivity;
+import com.example.androidca.ui.InfoActivity;
 import com.example.androidca.ui.LoginActivity;
+import com.example.androidca.MainActivity;
+import com.example.androidca.ProductsActivity;
 import com.example.androidca.ui.ProfileActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-
-import com.example.androidca.data.DatabaseHelper;
-import android.database.sqlite.SQLiteDatabase;
 
 public class BaseActivity extends AppCompatActivity {
 
@@ -38,7 +41,6 @@ public class BaseActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.d("BaseActivity", "onCreate() called");
         setContentView(R.layout.activity_base);
 
         // Set up the Toolbar
@@ -121,10 +123,13 @@ public class BaseActivity extends AppCompatActivity {
             Log.d("BaseActivity", "Products selected");
             startActivity(new Intent(this, ProductsActivity.class));
             return true;
+        } else if (itemId == R.id.navigation_info) {
+            Log.d("BaseActivity", "Info selected");
+            startActivity(new Intent(this, InfoActivity.class));
+            return true;
         }
         return false;
     }
-
 
     private void applyWindowInsets() {
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
@@ -139,6 +144,7 @@ public class BaseActivity extends AppCompatActivity {
             windowInsetsController.setAppearanceLightNavigationBars(false);
         }
     }
+
     protected SharedPreferences getSharedPreferences() {
         return sharedPreferences;
     }

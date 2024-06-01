@@ -15,16 +15,18 @@
     <string name="content_description_lou">Market in apocalypse</string>
 
     <!-- Bottom Navigation Menu -->
-    <string name="home">Home</string>
-    <string name="search">Search</string>
-    <string name="cart">Cart</string>
-    <string name="shopping_bag">Shopping Bag</string>
+    <string name="navigation_home">Home</string>
+    <string name="navigation_info">Info</string>
+    <string name="navigation_shop">Products</string>
+    <string name="navigation_search">Categories</string>
+    <string name="navigation_cart">Bag</string>
 
     <!-- Products & Bag -->
     <string name="bag_total">Bag Total: €%.2f</string>
     <string name="delivery">Delivery: €%.2f</string>
     <string name="grand_total">Grand Total: €%.2f</string>
     <string name="secure_checkout">Secure Checkout</string>
+    <string name="shopping_bag">Your Bag</string>
     <string name="keep_shopping">Keep Shopping</string>
     <string name="add_to_bag">Add to Bag</string>
     <string name="checkout_title">Checkout</string>
@@ -49,11 +51,27 @@
     <string name="items">Items</string>
     <string name="order_total">Order Total</string>
 
-
     <!-- Admin Profile-->
     <string name="admin_greeting">Welcome, Admin!</string>
     <string name="manage_users">Manage Users</string>
     <string name="admin_page_title">Admin Dashboard</string>
+
+    <!-- Info Page -->
+    <string name="faq">FAQ</string>
+    <string name="delivery_questions">Delivery Questions</string>
+    <string name="bg_swamp_city">swamp city</string>
+    <string name="faq_content">Here are some frequently asked questions...</string>
+    <string name="delivery_prices_content">Here are the details on delivery prices...</string>
+
+    <!-- Contact Us form -->
+    <string name="bg_image_description">Swamp overgrown city in apocalypse</string>
+    <string name="contact_us">Contact Us</string>
+    <string name="contact_us_message">Contact us directly if you have any questions</string>
+    <string name="contact_us_instructions">Please write your name, email address and a message below if you have any questions. One of our staff members will be happy to contact you directly and answer your questions as soon as possible.</string>
+    <string name="email_hint">Email</string>
+    <string name="message_hint">Message</string>
+    <string name="submit">Submit</string>
+
 
     <!-- Additional strings for address and email -->
     <string name="address">Address</string>
