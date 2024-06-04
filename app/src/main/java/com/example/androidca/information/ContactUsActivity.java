@@ -1,4 +1,4 @@
-package com.example.androidca.ui;
+package com.example.androidca.information;
 
 import android.os.Bundle;
 import android.view.View;

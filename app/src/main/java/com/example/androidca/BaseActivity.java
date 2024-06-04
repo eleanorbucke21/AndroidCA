@@ -20,7 +20,7 @@ import com.example.androidca.bag.BagActivity;
 import com.example.androidca.categories.CategoriesActivity;
 import com.example.androidca.data.DatabaseHelper;
 import com.example.androidca.products.ProductsActivity;
-import com.example.androidca.ui.InfoActivity;
+import com.example.androidca.information.InfoActivity;
 import com.example.androidca.ui.LoginActivity;
 import com.example.androidca.ui.ProfileActivity;
 import com.example.androidca.ui.AdminProfileActivity;

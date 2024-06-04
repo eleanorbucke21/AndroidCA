@@ -67,13 +67,13 @@
             android:windowSoftInputMode="stateHidden" />
 
         <!-- Info & Contact -->
-        <activity android:name=".ui.InfoActivity"
+        <activity android:name=".information.InfoActivity"
             android:theme="@style/Theme.AndroidCA"
             android:exported="true"
             android:windowSoftInputMode="stateHidden"/>
 
         <activity
-            android:name=".ui.ContactUsActivity"
+            android:name=".information.ContactUsActivity"
             android:theme="@style/Theme.AndroidCA"
             android:exported="true"
             android:windowSoftInputMode="stateHidden" />
