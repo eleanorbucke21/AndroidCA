@@ -1,4 +1,4 @@
-package com.example.androidca;
+package com.example.androidca.bag;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.androidca.R;
 
 import org.json.JSONObject;
 

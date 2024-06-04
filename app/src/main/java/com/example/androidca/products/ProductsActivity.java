@@ -1,10 +1,14 @@
-package com.example.androidca;
+package com.example.androidca.products;
 
 import android.os.Bundle;
 import android.util.Log;
 
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.androidca.BaseActivity;
+import com.example.androidca.utils.DividerItemDecoration;
+import com.example.androidca.R;
 
 import org.json.JSONArray;
 import org.json.JSONObject;

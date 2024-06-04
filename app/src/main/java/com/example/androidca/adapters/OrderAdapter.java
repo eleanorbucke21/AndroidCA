@@ -1,4 +1,4 @@
-package com.example.androidca.ui;
+package com.example.androidca.adapters;
 
 import android.view.LayoutInflater;
 import android.view.View;

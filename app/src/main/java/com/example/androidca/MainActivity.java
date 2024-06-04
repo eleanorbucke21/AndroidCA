@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.widget.ImageView;
+import android.view.View;
 
 public class MainActivity extends BaseActivity {
 
@@ -30,8 +31,18 @@ public class MainActivity extends BaseActivity {
     private void adjustBackgroundImage(int orientation) {
         if (orientation == Configuration.ORIENTATION_PORTRAIT) {
             backgroundImage.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            // Hide the quote container if in portrait mode
+            View quoteContainer = findViewById(R.id.quoteContainer);
+            if (quoteContainer != null) {
+                quoteContainer.setVisibility(View.GONE);
+            }
         } else if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
             backgroundImage.setScaleType(ImageView.ScaleType.FIT_XY);
+            // Show the quote container if in landscape mode
+            View quoteContainer = findViewById(R.id.quoteContainer);
+            if (quoteContainer != null) {
+                quoteContainer.setVisibility(View.VISIBLE);
+            }
         }
     }
 

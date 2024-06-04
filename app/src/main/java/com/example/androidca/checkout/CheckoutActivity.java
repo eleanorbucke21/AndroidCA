@@ -1,6 +1,9 @@
-package com.example.androidca;
+package com.example.androidca.checkout;
 
 import android.os.Bundle;
+
+import com.example.androidca.BaseActivity;
+import com.example.androidca.R;
 
 public class CheckoutActivity extends BaseActivity {
     @Override

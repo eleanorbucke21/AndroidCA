@@ -1,4 +1,4 @@
-package com.example.androidca;
+package com.example.androidca.categories;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,7 +7,9 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import androidx.appcompat.app.AppCompatActivity;
+import com.example.androidca.BaseActivity;
+import com.example.androidca.R;
+import com.example.androidca.products.ProductsActivity;
 
 import org.json.JSONArray;
 import org.json.JSONObject;

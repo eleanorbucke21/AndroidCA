@@ -1,4 +1,4 @@
-package com.example.androidca;
+package com.example.androidca.bag;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,6 +8,10 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.androidca.BaseActivity;
+import com.example.androidca.R;
+import com.example.androidca.checkout.CheckoutActivity;
 
 import org.json.JSONObject;
 

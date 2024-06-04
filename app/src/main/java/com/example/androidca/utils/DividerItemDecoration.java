@@ -1,4 +1,4 @@
-package com.example.androidca;
+package com.example.androidca.utils;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -7,6 +7,8 @@ import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.androidca.R;
 
 public class DividerItemDecoration extends RecyclerView.ItemDecoration {
 

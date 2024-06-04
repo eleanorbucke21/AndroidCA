@@ -15,17 +15,17 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.core.view.WindowInsetsControllerCompat;
+
+import com.example.androidca.bag.BagActivity;
+import com.example.androidca.categories.CategoriesActivity;
 import com.example.androidca.data.DatabaseHelper;
-import com.example.androidca.BagActivity;
-import com.example.androidca.CategoriesActivity;
-import com.example.androidca.ui.ContactUsActivity;
+import com.example.androidca.products.ProductsActivity;
 import com.example.androidca.ui.InfoActivity;
 import com.example.androidca.ui.LoginActivity;
-import com.example.androidca.MainActivity;
-import com.example.androidca.ProductsActivity;
 import com.example.androidca.ui.ProfileActivity;
 import com.example.androidca.ui.AdminProfileActivity;
 import com.example.androidca.ui.LogoutActivity;
+import com.example.androidca.utils.Constants;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class BaseActivity extends AppCompatActivity {

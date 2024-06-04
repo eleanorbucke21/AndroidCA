@@ -16,7 +16,7 @@
         tools:targetApi="31">
 
         <activity
-            android:name=".SplashActivity"
+            android:name=".ui.SplashActivity"
             android:theme="@style/SplashTheme"
             android:exported="true">
             <intent-filter>
@@ -25,8 +25,17 @@
             </intent-filter>
         </activity>
 
+        <!-- Main  -->
         <activity
             android:name=".MainActivity"
+            android:theme="@style/Theme.AndroidCA"
+            android:exported="true"
+            android:windowSoftInputMode="stateHidden" />
+
+        <!-- Users -->
+
+        <activity
+            android:name=".ui.RegisterActivity"
             android:theme="@style/Theme.AndroidCA"
             android:exported="true"
             android:windowSoftInputMode="stateHidden" />
@@ -43,17 +52,6 @@
             android:exported="true"
             android:windowSoftInputMode="stateHidden" />
 
-        <activity android:name=".ui.InfoActivity"
-            android:theme="@style/Theme.AndroidCA"
-            android:exported="true"
-            android:windowSoftInputMode="stateHidden"/>
-
-
-        <activity
-            android:name=".ui.RegisterActivity"
-            android:theme="@style/Theme.AndroidCA"
-            android:exported="true"
-            android:windowSoftInputMode="stateHidden" />
 
         <activity
             android:name=".ui.ProfileActivity"
@@ -68,11 +66,51 @@
             android:exported="true"
             android:windowSoftInputMode="stateHidden" />
 
+        <!-- Info & Contact -->
+        <activity android:name=".ui.InfoActivity"
+            android:theme="@style/Theme.AndroidCA"
+            android:exported="true"
+            android:windowSoftInputMode="stateHidden"/>
+
         <activity
             android:name=".ui.ContactUsActivity"
             android:theme="@style/Theme.AndroidCA"
             android:exported="true"
             android:windowSoftInputMode="stateHidden" />
+
+        <!-- Product & Categories -->
+
+        <activity
+            android:name=".products.ProductsActivity"
+            android:theme="@style/Theme.AndroidCA"
+            android:exported="true">
+        </activity>
+
+        <activity
+            android:name=".categories.CategoriesActivity"
+            android:theme="@style/Theme.AndroidCA"
+            android:exported="true">
+        </activity>
+
+        <activity
+            android:name=".products.ProductDetailActivity"
+            android:theme="@style/Theme.AndroidCA"
+            android:exported="true">
+        </activity>
+
+        <!-- Bag and Checkout -->
+
+        <activity
+            android:name=".bag.BagActivity"
+            android:theme="@style/Theme.AndroidCA"
+            android:exported="true">
+        </activity>
+
+        <activity
+            android:name=".checkout.CheckoutActivity"
+            android:theme="@style/Theme.AndroidCA"
+            android:exported="true">
+        </activity>
 
     <meta-data
         android:name="preloaded_fonts"

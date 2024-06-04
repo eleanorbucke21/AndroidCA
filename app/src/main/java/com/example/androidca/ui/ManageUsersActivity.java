@@ -3,38 +3,39 @@ package com.example.androidca.ui;
 import android.os.Bundle;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.androidca.R;
-
-import android.content.SharedPreferences;
-import androidx.recyclerview.widget.LinearLayoutManager;
+import com.example.androidca.data.DatabaseManager;
 import com.example.androidca.models.User;
+import com.example.androidca.adapters.UserAdapter;
+import android.content.SharedPreferences;
+
 import java.util.List;
-import com.example.androidca.data.DatabaseHelper;
 
 public class ManageUsersActivity extends AppCompatActivity {
 
     private RecyclerView recyclerViewUsers;
     private UserAdapter adapter;
-    private DatabaseHelper databaseHelper;
+    private DatabaseManager databaseManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_manage_users);
 
-        databaseHelper = new DatabaseHelper(this);
+        databaseManager = new DatabaseManager(this);
         recyclerViewUsers = findViewById(R.id.recyclerViewUsers);
         setupRecyclerView();
     }
 
     private void setupRecyclerView() {
-        recyclerViewUsers = findViewById(R.id.recyclerViewUsers);
         recyclerViewUsers.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new UserAdapter(databaseHelper.getAllUsers(), position -> {
+        adapter = new UserAdapter(databaseManager.getAllUsers(), position -> {
             if (isAdmin()) {
-                databaseHelper.deleteUser(adapter.getUser(position).getId());
+                databaseManager.deleteUser(adapter.getUser(position).getId());
                 adapter.removeItem(position);
+                recyclerViewUsers.getAdapter().notifyItemRemoved(position); // More efficient update
                 Toast.makeText(this, "User deleted", Toast.LENGTH_SHORT).show();
             }
         });
@@ -47,7 +48,7 @@ public class ManageUsersActivity extends AppCompatActivity {
     }
 
     private void refreshUserList() {
-        List<User> users = databaseHelper.getAllUsers();
+        List<User> users = databaseManager.getAllUsers();
         adapter.setUsers(users);
         adapter.notifyDataSetChanged();
     }

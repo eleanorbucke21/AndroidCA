@@ -1,4 +1,4 @@
-package com.example.androidca;
+package com.example.androidca.utils;
 
 public class Constants {
     public static final String PREFS_NAME = "user_prefs";

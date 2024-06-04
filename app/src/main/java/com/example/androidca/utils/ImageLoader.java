@@ -1,4 +1,4 @@
-package com.example.androidca;
+package com.example.androidca.utils;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;

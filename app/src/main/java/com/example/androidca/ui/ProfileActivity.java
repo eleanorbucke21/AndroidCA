@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.androidca.BaseActivity;
 import com.example.androidca.R;
+import com.example.androidca.adapters.OrderAdapter;
 import com.example.androidca.data.OrderDAO;
 import com.example.androidca.data.UserDAO;
 import com.example.androidca.models.Order;

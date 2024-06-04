@@ -1,4 +1,4 @@
-package com.example.androidca;
+package com.example.androidca.products;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -9,6 +9,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.example.androidca.bag.BagManager;
+import com.example.androidca.BaseActivity;
+import com.example.androidca.R;
 
 import org.json.JSONObject;
 

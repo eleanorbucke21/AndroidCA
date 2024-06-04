@@ -12,7 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.androidca.BaseActivity;
-import com.example.androidca.Constants;
+import com.example.androidca.utils.Constants;
 import com.example.androidca.R;
 import com.example.androidca.data.UserDAO;
 
