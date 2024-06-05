@@ -108,7 +108,7 @@ public class BaseActivity extends AppCompatActivity {
         return signedIn;
     }
 
-    private void updateButtonVisibility() {
+    protected void updateButtonVisibility() {
         boolean isSignedIn = isUserSignedIn();
         Log.d(TAG, "updateButtonVisibility: isSignedIn = " + isSignedIn);
 
@@ -153,12 +153,17 @@ public class BaseActivity extends AppCompatActivity {
             startActivity(new Intent(this, MainActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
             return true;
         } else if (itemId == R.id.navigation_search) {
-            Log.d(TAG, "Categories selected");
+            Log.d(TAG, "Search selected");
             startActivity(new Intent(this, CategoriesActivity.class));
             return true;
         } else if (itemId == R.id.navigation_cart) {
-            Log.d(TAG, "Bag selected");
-            startActivity(new Intent(this, BagActivity.class));
+            Log.d(TAG, "Bag selected - attempting to open BagActivity");
+            try {
+                startActivity(new Intent(this, BagActivity.class));
+                Log.d(TAG, "BagActivity started successfully");
+            } catch (Exception e) {
+                Log.e(TAG, "Failed to start BagActivity", e);
+            }
             return true;
         } else if (itemId == R.id.navigation_shop) {
             Log.d(TAG, "Products selected");
@@ -171,6 +176,7 @@ public class BaseActivity extends AppCompatActivity {
         }
         return false;
     }
+
 
     private void applyWindowInsets() {
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {

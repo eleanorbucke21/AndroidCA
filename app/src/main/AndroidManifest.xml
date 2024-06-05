@@ -89,28 +89,28 @@
         <activity
             android:name=".categories.CategoriesActivity"
             android:theme="@style/Theme.AndroidCA"
-            android:exported="true">
-        </activity>
+            android:exported="true"
+            android:windowSoftInputMode="stateHidden" />
 
         <activity
             android:name=".products.ProductDetailActivity"
             android:theme="@style/Theme.AndroidCA"
-            android:exported="true">
-        </activity>
+            android:exported="true"
+            android:windowSoftInputMode="stateHidden" />
 
         <!-- Bag and Checkout -->
 
         <activity
             android:name=".bag.BagActivity"
             android:theme="@style/Theme.AndroidCA"
-            android:exported="true">
-        </activity>
+            android:exported="true"
+            android:windowSoftInputMode="stateHidden" />
 
         <activity
             android:name=".checkout.CheckoutActivity"
             android:theme="@style/Theme.AndroidCA"
-            android:exported="true">
-        </activity>
+            android:exported="true"
+            android:windowSoftInputMode="stateHidden" />
 
     <meta-data
         android:name="preloaded_fonts"
