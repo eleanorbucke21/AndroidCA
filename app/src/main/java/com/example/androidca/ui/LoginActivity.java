@@ -15,6 +15,7 @@ import com.example.androidca.BaseActivity;
 import com.example.androidca.utils.Constants;
 import com.example.androidca.R;
 import com.example.androidca.data.UserDAO;
+import com.example.androidca.models.User;
 
 public class LoginActivity extends BaseActivity {
     private EditText editTextUsername, editTextPassword;
@@ -50,11 +51,15 @@ public class LoginActivity extends BaseActivity {
             if (userDAO.loginUser(username, password)) {
                 Log.d("LoginActivity", "Login successful for username: " + username);
 
-                // Save login status, username, and role in SharedPreferences
+                // Retrieve the user info to get the user ID
+                User user = userDAO.getUserInfo(username);
+
+                // Save login status, username, role, and user ID in SharedPreferences
                 SharedPreferences sharedPreferences = getSharedPreferences(Constants.PREFS_NAME, MODE_PRIVATE);
                 SharedPreferences.Editor editor = sharedPreferences.edit();
                 editor.putBoolean(Constants.KEY_IS_SIGNED_IN, true);
                 editor.putString(Constants.KEY_USERNAME, username);
+                editor.putInt(Constants.KEY_USER_ID, user.getId()); // Save user ID
 
                 if (userDAO.isAdminUser(username)) {
                     editor.putString(Constants.KEY_USER_ROLE, "admin");

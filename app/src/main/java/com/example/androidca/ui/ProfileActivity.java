@@ -1,5 +1,6 @@
 package com.example.androidca.ui;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.style.UnderlineSpan;
@@ -18,6 +19,7 @@ import com.example.androidca.data.OrderDAO;
 import com.example.androidca.data.UserDAO;
 import com.example.androidca.models.Order;
 import com.example.androidca.models.User;
+import com.example.androidca.utils.Constants;
 
 import java.util.List;
 
@@ -30,6 +32,7 @@ public class ProfileActivity extends BaseActivity {
     private RecyclerView recyclerView;
     private OrderAdapter orderAdapter;
     private TextView deliveryAddressTitle, orderHistoryTitle;
+    private SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,8 +66,10 @@ public class ProfileActivity extends BaseActivity {
         // Set up RecyclerView
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
+        sharedPreferences = getSharedPreferences(Constants.PREFS_NAME, MODE_PRIVATE);
+        String username = sharedPreferences.getString(Constants.KEY_USERNAME, null);
+
         // Load user information
-        String username = getIntent().getStringExtra("username");
         if (username != null) {
             User user = userDAO.getUserInfo(username);
             if (user != null) {

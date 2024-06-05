@@ -6,9 +6,19 @@ public class Order {
     private String orderDate;
     private String orderDetails;
     private double totalAmount;
-    private String deliveryAddress; // Add this line
+    private String deliveryAddress;
 
-    // Getters and setters
+    public Order() {}
+
+    public Order(int id, int userId, String orderDate, String orderDetails, double totalAmount, String deliveryAddress) {
+        this.id = id;
+        this.userId = userId;
+        this.orderDate = orderDate;
+        this.orderDetails = orderDetails;
+        this.totalAmount = totalAmount;
+        this.deliveryAddress = deliveryAddress;
+    }
+
     public int getId() {
         return id;
     }
@@ -49,11 +59,11 @@ public class Order {
         this.totalAmount = totalAmount;
     }
 
-    public String getDeliveryAddress() { // Add this getter
+    public String getDeliveryAddress() {
         return deliveryAddress;
     }
 
-    public void setDeliveryAddress(String deliveryAddress) { // Add this setter
+    public void setDeliveryAddress(String deliveryAddress) {
         this.deliveryAddress = deliveryAddress;
     }
 }

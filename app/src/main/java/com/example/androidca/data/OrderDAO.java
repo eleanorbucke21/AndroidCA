@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import com.example.androidca.models.Order;
 
@@ -33,28 +34,29 @@ public class OrderDAO {
         List<Order> orders = new ArrayList<>();
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         String[] columns = {
-                DatabaseHelper.COLUMN_ORDER_ID,
-                DatabaseHelper.COLUMN_USER_ID_FK,
                 DatabaseHelper.COLUMN_ORDER_DATE,
-                DatabaseHelper.COLUMN_ORDER_DETAILS,
-                DatabaseHelper.COLUMN_TOTAL_AMOUNT,
-                DatabaseHelper.COLUMN_DELIVERY_ADDRESS
+                DatabaseHelper.COLUMN_ORDER_DETAILS  // Assuming this contains product name
         };
         String selection = DatabaseHelper.COLUMN_USER_ID_FK + " = ?";
         String[] selectionArgs = {String.valueOf(userId)};
         Cursor cursor = db.query(DatabaseHelper.TABLE_ORDERS, columns, selection, selectionArgs, null, null, null);
 
-        if (cursor.moveToFirst()) {
-            do {
-                Order order = new Order();
-                order.setId(cursor.getInt(cursor.getColumnIndex(DatabaseHelper.COLUMN_ORDER_ID)));
-                order.setUserId(cursor.getInt(cursor.getColumnIndex(DatabaseHelper.COLUMN_USER_ID_FK)));
-                order.setOrderDate(cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_ORDER_DATE)));
-                order.setOrderDetails(cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_ORDER_DETAILS)));
-                order.setTotalAmount(cursor.getDouble(cursor.getColumnIndex(DatabaseHelper.COLUMN_TOTAL_AMOUNT)));
-                order.setDeliveryAddress(cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_DELIVERY_ADDRESS)));
-                orders.add(order);
-            } while (cursor.moveToNext());
+        int dateIndex = cursor.getColumnIndex(DatabaseHelper.COLUMN_ORDER_DATE);
+        int detailsIndex = cursor.getColumnIndex(DatabaseHelper.COLUMN_ORDER_DETAILS);
+
+        if (dateIndex != -1 && detailsIndex != -1) {
+            if (cursor.moveToFirst()) {
+                do {
+                    String orderDate = cursor.getString(dateIndex);
+                    String productName = cursor.getString(detailsIndex);  // Assuming this is the product name
+                    Order order = new Order();
+                    order.setOrderDate(orderDate);
+                    order.setOrderDetails(productName);  // Using orderDetails as product name
+                    orders.add(order);
+                } while (cursor.moveToNext());
+            }
+        } else {
+            Log.e("OrderDAO", "Error: Column index not found.");
         }
         cursor.close();
         db.close();
