@@ -31,6 +31,15 @@
     <string name="add_to_bag">Add to Bag</string>
     <string name="checkout_title">Checkout</string>
 
+    <!-- Checkout -->
+    <string name="card_number">Card Number</string>
+    <string name="card_expiry">Card Expiry</string>
+    <string name="card_cvv">CVV</string>
+    <string name="delivery_address">Delivery Address</string>
+    <string name="buy_now">Buy Now</string>
+
+
+
     <!-- Login, Register & Logout -->
     <string name="login">Login</string>
     <string name="username">Username</string>
@@ -41,7 +50,6 @@
 
 
     <!-- Profile -->
-    <string name="delivery_address">Delivery Address</string>
     <string name="order_history">Order History</string>
     <string name="name_hint">Name</string>
     <string name="address_hint">Address</string>
@@ -102,6 +110,8 @@
     <string name="email_hint">Email</string>
     <string name="message_hint">Message</string>
     <string name="submit">Submit</string>
+
+
 
 
     <!-- Additional strings for address and email -->

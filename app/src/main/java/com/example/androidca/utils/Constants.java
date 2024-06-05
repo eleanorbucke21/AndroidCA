@@ -5,4 +5,5 @@ public class Constants {
     public static final String KEY_IS_SIGNED_IN = "is_signed_in";
     public static final String KEY_USERNAME = "username";
     public static final String KEY_USER_ROLE = "user_role";
+    public static final String KEY_USER_ADDRESS = "user_address"; // Add this line
 }
