@@ -79,6 +79,9 @@ public class LoginActivity extends BaseActivity {
                     startActivity(intent);
                 }
                 finish();
+
+                // Display a toast for successful login
+                Toast.makeText(this, "Login successful", Toast.LENGTH_SHORT).show();
             } else {
                 Log.e("LoginActivity", "Invalid credentials for username: " + username);
                 // Handle login failure

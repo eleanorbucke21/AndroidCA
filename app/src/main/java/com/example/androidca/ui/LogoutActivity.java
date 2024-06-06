@@ -3,6 +3,8 @@ package com.example.androidca.ui;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.widget.Toast;
+
 import com.example.androidca.BaseActivity;
 import com.example.androidca.R;
 
@@ -18,6 +20,9 @@ public class LogoutActivity extends BaseActivity {
     private void logout() {
         // Clear session data
         clearSessionData();
+
+        // Display a toast message for logout
+        Toast.makeText(this, "Logged out successfully", Toast.LENGTH_SHORT).show();
 
         // Navigate to the login screen
         Intent intent = new Intent(this, LoginActivity.class);
