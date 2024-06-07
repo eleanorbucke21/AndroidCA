@@ -14,7 +14,20 @@ Days Coming is a business to consumer online retailer for apocalyptic preperatio
     * [Application Features](#application-features)
     * [Future Features](#future-features)
 * [Typography & Color Scheme](#typography-and-color-scheme)
-    
+* [Wireframes](#wireframes)
+* [Technologies User](#technologies)
+    * [Languages Used](#languages-used)
+    * [Libraries](#libraries)
+    * [Database](#database)
+    * [Testing Libraries](#testing-libraries)
+    * [Build and Dependency Management](#build-and-dependency-management)
+    * [Plugins](#plugins)
+    * [Configuration](#configuration)
+    * [Dependencies Block](#dependencies-block)
+    * [Project Structure](#project-structure)  
+* [Media](#media)
+    * [Background Images](#background-images)
+    * [Product Images](#product-images)
 
 
 
@@ -306,11 +319,39 @@ dependencies {
     androidTestImplementation(libs.espresso.core)
 }
 ```
-### <u>Media</u>
 
-<strong><u>Images Used:</u></strong>
+## Project Structure
 
-<u>Background Images</u>
+To help understand how the project is organized, I have outlined the main directories and files below. This structure helps to locate functionalities and resources easily, ensuring efficient project navigation and development.
+
+```
+AndroidCA/
+├── app/
+│ ├── src/
+│ │ ├── main/
+│ │ │ ├── java/
+│ │ │ │ ├── com/
+│ │ │ │ │ ├── example/
+│ │ │ │ │ │ ├── androidca/
+│ │ │ │ │ │ │ ├── MainActivity.java # Main entry point of the app
+│ │ │ │ │ │ │ ├── BaseActivity.java # Base activity for common features
+│ │ │ │ │ │ │ ├── adapters/ # Adapters for data handling
+│ │ │ │ │ │ │ │ ├── OrderAdapter.java # Manages order list views
+│ │ │ │ │ │ │ │ ├── UserAdapter.java # Manages user list views
+│ │ │ │ │ │ │ ├── bag/ # Bag functionalities
+│ │ │ │ │ │ │ │ ├── BagActivity.java # Manages shopping bag activities
+│ │ │ │ │ │ │ │ ├── BagAdapter.java # Adapter for bag items
+│ │ │ │ │ │ │ │ ├── BagManager.java # Logic for bag operations
+
+```
+
+### Main Java Files
+
+## Media
+
+### Images Used:
+
+### Background Images
 
 - DaysComing icon created in [Adobe Express](https://https://www.adobe.com/express/).
 
@@ -326,7 +367,7 @@ dependencies {
 
 
 
-<u>Product Images</u>
+### Product Images:=
 - [12-Halal.jpg](https://de.homeloft.eu/products/xmre-halal-1000-meals-ready-to-eat-mre-military-grade-ration-extended-shelf-life-no-refrigeration-for-law-enforcement-emergency-food-supply-outdoor-enthusiasts-12-meals-6-menus-usa-made).
 
 - [12-Kosher-Mre's-with-heaters.jpg](https://www.amazon.com/XMRE-Kosher-Meals-Ready-Refrigeration/dp/B087D6Q5G6)
