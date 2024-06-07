@@ -10,6 +10,7 @@
     <string name="profile">Profile</string>
     <string name="sign_in">Sign In</string>
 
+
     <!-- Image Description -->
     <string name="content_description_cityscape">Cityscape in apocalypse</string>
     <string name="content_description_lou">Market in apocalypse</string>
@@ -30,6 +31,11 @@
     <string name="keep_shopping">Keep Shopping</string>
     <string name="add_to_bag">Add to Bag</string>
     <string name="checkout_title">Checkout</string>
+    <string name="discount_applied">Discount Applied: 10%% OFF</string>
+    <string name="bag_total_label">Bag Total: €%1$s</string>
+    <string name="delivery_label">Delivery: €%1$s</string>
+    <string name="discount_label">Discount 10%%: -€%1$s</string>
+    <string name="grand_total_label">Grand Total: €%1$s</string>
 
     <!-- Checkout -->
     <string name="card_number">Card Number</string>
