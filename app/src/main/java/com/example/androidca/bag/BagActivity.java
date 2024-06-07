@@ -1,6 +1,7 @@
 package com.example.androidca.bag;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -12,10 +13,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.androidca.BaseActivity;
 import com.example.androidca.R;
 import com.example.androidca.checkout.CheckoutActivity;
+import com.example.androidca.utils.Constants;
 
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class BagActivity extends BaseActivity {
 
@@ -29,19 +32,23 @@ public class BagActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         getLayoutInflater().inflate(R.layout.activity_bag, findViewById(R.id.content_frame));
 
+        // Setup the recycler view for showing bag items
         bagRecyclerView = findViewById(R.id.bagRecyclerView);
+        bagRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        bagAdapter = new BagAdapter(BagManager.getInstance().getBagItems());
+        bagRecyclerView.setAdapter(bagAdapter);
+
+        // Reference to the UI components
         bagTotal = findViewById(R.id.bagTotal);
         delivery = findViewById(R.id.delivery);
         grandTotal = findViewById(R.id.grandTotal);
         checkoutButton = findViewById(R.id.checkoutButton);
         keepShoppingButton = findViewById(R.id.keepShoppingButton);
 
-        bagRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        bagAdapter = new BagAdapter(BagManager.getInstance().getBagItems());
-        bagRecyclerView.setAdapter(bagAdapter);
-
+        // Initialize totals
         updateTotals();
 
+        // Setup button listeners
         checkoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -54,6 +61,7 @@ public class BagActivity extends BaseActivity {
         keepShoppingButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // Close this activity
                 finish();
             }
         });
@@ -62,7 +70,18 @@ public class BagActivity extends BaseActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        // Ensure navigation is correctly set when resuming the activity
         resetBottomNavigationSelection();
+    }
+
+    /**
+     * Check if the user is currently logged in using shared preferences.
+     *
+     * @return true if the user is logged in, false otherwise.
+     */
+    private boolean isUserLoggedIn() {
+        SharedPreferences sharedPreferences = getSharedPreferences(Constants.PREFS_NAME, MODE_PRIVATE);
+        return sharedPreferences.getBoolean(Constants.KEY_IS_SIGNED_IN, false);
     }
 
     private void updateTotals() {
@@ -78,11 +97,30 @@ public class BagActivity extends BaseActivity {
             }
         }
 
-        double deliveryCost = total > 50 ? 0.0 : 5.0; // Example logic for delivery cost
-        double grandTotalValue = total + deliveryCost;
+        double discount = 0;
+        if (isUserLoggedIn()) {
+            discount = total * 0.1; // Calculate 10% discount
+            total -= discount; // Apply the discount
+        }
 
-        bagTotal.setText(String.format(getString(R.string.bag_total), total));
-        delivery.setText(String.format(getString(R.string.delivery), deliveryCost));
-        grandTotal.setText(String.format(getString(R.string.grand_total), grandTotalValue));
+        double deliveryCost = total > 50 ? 0.0 : 5.0;
+        double grandTotal = total + deliveryCost;
+
+        // Set the text views using string resources
+        TextView bagTotalView = findViewById(R.id.bagTotal);
+        TextView deliveryView = findViewById(R.id.delivery);
+        TextView discountView = findViewById(R.id.discountNotification);
+        TextView grandTotalView = findViewById(R.id.grandTotal);
+
+        bagTotalView.setText(getString(R.string.bag_total_label, String.format(Locale.UK, "%.2f", total + discount)));
+        deliveryView.setText(getString(R.string.delivery_label, String.format(Locale.UK, "%.2f", deliveryCost)));
+        grandTotalView.setText(getString(R.string.grand_total_label, String.format(Locale.UK, "%.2f", grandTotal)));
+
+        if (discount > 0) {
+            discountView.setVisibility(View.VISIBLE);
+            discountView.setText(getString(R.string.discount_label, String.format(Locale.UK, "%.2f", discount)));
+        } else {
+            discountView.setVisibility(View.GONE);
+        }
     }
 }
