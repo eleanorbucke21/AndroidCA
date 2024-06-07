@@ -107,8 +107,10 @@ Contact Page.
 - Displays name of the application.
 - It contains the icon links for sign in, profile and sign out depending on if a user is signed in or not. 
 
-<img src="media/ToolbarNotLoggedIn.png" width="300">
-<img src="media/ToolbarLoggedIN.png" width="300">
+| Not Signed In | Signed In |
+|:-------------:|:---------:|
+| ![Not Signed In](media/ToolbarNotLoggedIn.png) | ![Signed In](media/ToolbarLoggedIN.png) |
+
 
 ### Bottom Navigation Menu
 - Featured at the bottom of the screen.
