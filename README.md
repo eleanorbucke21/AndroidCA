@@ -1,4 +1,4 @@
-<img src="media/dayscomingapp.png" width=100%>
+<img src="media/dayscomingapp.png" width=800px>
 
 ---
 # Days Coming App #
